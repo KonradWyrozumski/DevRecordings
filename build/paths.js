@@ -1,13 +1,16 @@
 var appRoot = 'src/';
 var outputRoot = 'dist/';
-var exporSrvtRoot = 'export/'
+var exporSrvtRoot = 'export/';
+var nodePath = 'node_modules/';
 
 module.exports = {
   root: appRoot,
   source: appRoot + '**/*.ts',
   html: appRoot + '**/*.html',
   css: appRoot + '**/*.css',
+  nodePath: nodePath,
   style: 'styles/**/*.css',
+  patterns: appRoot + 'styles/**/*.png',
   output: outputRoot,
   exportSrv: exporSrvtRoot,
   doc: './doc',
