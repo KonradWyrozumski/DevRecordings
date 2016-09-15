@@ -20,7 +20,7 @@ body {
 }
 .nav-header {
   padding: 33px 25px;
-  background: url("../patterns/header-profile.png") no-repeat;
+  background: url("patterns/header-profile.png") no-repeat;
 }
 .nav-header a {
   color: #DFE4ED;

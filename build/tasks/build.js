@@ -12,8 +12,8 @@ var htmlmin = require('gulp-htmlmin');
 
 // Include plugins
 var plugins = require("gulp-load-plugins")({
-    pattern: ['gulp-*', 'gulp.*', 'main-bower-files', 'run-sequence'],
-    replaceString: /\bgulp[\-.]/
+  pattern: ['gulp-*', 'gulp.*', 'main-bower-files', 'run-sequence'],
+  replaceString: /\bgulp[\-.]/
 });
 
 // transpiles changed es6 files to SystemJS format
@@ -56,22 +56,32 @@ gulp.task('build-css', function () {
     .pipe(browserSync.stream());
 });
 
-// copies changed patterns files to the output directory
-gulp.task('build-patterns', function () {
-  return gulp.src(paths.patterns)
-    .pipe(changed(paths.output, { extension: '.png' }))
+gulp.task('scripts-common', function () {
+  return gulp.src([
+    paths.nodePath + 'bootstrap/dist/js/bootstrap.js',
+    paths.nodePath + 'jquery/dist/jquery.js'
+  ])
+    .pipe(plugins.plumber())
+    .pipe(plugins.uglify({ mangle: false }))
     .pipe(gulp.dest(paths.output))
-    .pipe(browserSync.stream());
 });
 
-// this task calls the clean task (located
-// in ./clean.js), then runs the build-system
-// and build-html tasks in parallel
-// https://www.npmjs.com/package/gulp-run-sequence
-gulp.task('build', function (callback) {
-  return runSequence(
-    'clean',
-    ['build-system', 'build-html', 'build-patterns', 'build-css'],
-    callback
-  );
-});
+  // copies changed patterns files to the output directory
+  gulp.task('build-patterns', function () {
+    return gulp.src(paths.patterns)
+      .pipe(changed(paths.output, { extension: '.png' }))
+      .pipe(gulp.dest(paths.output))
+      .pipe(browserSync.stream());
+  });
+
+  // this task calls the clean task (located
+  // in ./clean.js), then runs the build-system
+  // and build-html tasks in parallel
+  // https://www.npmjs.com/package/gulp-run-sequence
+  gulp.task('build', function (callback) {
+    return runSequence(
+      'clean',
+      ['build-system', 'build-html', 'build-patterns', 'build-css', 'scripts-common'],
+      callback
+    );
+  });
