@@ -66,3 +66,43 @@ body {
     width: 220px;
   }
 }
+
+.navbar-static-top {
+  background: #f3f3f4;
+}
+
+/* DASHBOARD */
+.border-bottom {
+  border-bottom: 1px solid #e7eaec !important;
+}
+
+.dashboard-header {
+  border-top: 0;
+  padding: 20px 20px 20px 20px;
+}
+
+#page-wrapper {
+  padding: 0 15px;
+  min-height: 568px;
+  position: relative !important;
+}
+
+@media (min-width: 768px) {
+  #page-wrapper {
+    position: inherit;
+    margin: 0 0 0 220px;
+    min-height: 1200px;
+  }
+}
+@media (max-width: 768px) {
+  #page-wrapper {
+    position: inherit;
+    margin: 0 0 0 0;
+    min-height: 1000px;
+  }
+}
+
+/* BACKGROUNDS */
+.white-bg {
+  background-color: #ffffff;
+}

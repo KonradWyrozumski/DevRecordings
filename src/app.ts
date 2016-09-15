@@ -6,7 +6,8 @@ export class App {
   configureRouter(config: RouterConfiguration, router: Router) {
     config.title = '#DEVRECORDINGS';
     config.map([
-      { route: ['', 'mylibrary'], name: 'mylibrary', moduleId: 'mylibrary', nav: true, title: 'My Library' }
+      { route: ['', 'home'], name: 'home', moduleId: 'home', nav: false },
+      { route: ['mylibrary'], name: 'mylibrary', moduleId: 'mylibrary', nav: true, title: 'My Library' }
     ]);
 
     this.router = router;
