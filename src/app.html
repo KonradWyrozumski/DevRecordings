@@ -3,14 +3,8 @@
   <nav-bar router.bind="router"></nav-bar>
 
   <div id="page-wrapper" class="gray-bg">
-
-    <require from="notification-bar.html"></require>
-    <notification-bar></notification-bar>
-
     <div class="page-host">
-      <div class="row  border-bottom white-bg dashboard-header">
-        <router-view></router-view>
-      </div>
+      <router-view></router-view>
     </div>
   </div>
 </template>

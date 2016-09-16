@@ -7,7 +7,7 @@ export class App {
     config.title = '#DEVRECORDINGS';
     config.map([
       { route: ['', 'home'], name: 'home', moduleId: 'home', nav: false },
-      { route: ['mylibrary'], name: 'mylibrary', moduleId: 'mylibrary', nav: true, title: 'My Library' }
+      { route: ['mylist'], name: 'mylist', moduleId: 'mylist', nav: true, title: 'My List' }
     ]);
 
     this.router = router;
