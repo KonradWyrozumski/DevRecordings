@@ -10,10 +10,8 @@ export class MyList {
 
     constructor(notificationState) {
         this.notificationState = notificationState;
-        this.notificationState.message = 'some message';
     }
 
     addNewRecording() {
-        this.address = '';
     }
 }

@@ -3,11 +3,22 @@ System.config({
   transpiler: false,
   paths: {
     "*": "dist/*",
-    "npm:*": "jspm_packages/npm/*"
+    "npm:*": "jspm_packages/npm/*",
+    "github:*": "jspm_packages/github/*"
   },
   map: {
     "aurelia-bootstrapper": "npm:aurelia-bootstrapper@1.0.0",
     "aurelia-framework": "npm:aurelia-framework@1.0.2",
+    "bootstrap": "github:twbs/bootstrap@3.3.7",
+    "jquery": "npm:jquery@3.1.0",
+    "toastr": "github:CodeSeven/toastr@2.1.3",
+    "github:CodeSeven/toastr@2.1.3": {
+      "css": "github:systemjs/plugin-css@0.1.27",
+      "jquery": "github:components/jquery@3.1.0"
+    },
+    "github:twbs/bootstrap@3.3.7": {
+      "jquery": "npm:jquery@3.1.0"
+    },
     "npm:aurelia-binding@1.0.3": {
       "aurelia-logging": "npm:aurelia-logging@1.0.0",
       "aurelia-metadata": "npm:aurelia-metadata@1.0.0",

@@ -46,24 +46,12 @@ gulp.task('build-html', function () {
 
 gulp.task('build-css', function () {
   return gulp.src([
-    paths.nodePath + 'bootstrap/dist/css/bootstrap.css',
-    paths.nodePath + 'metismenu/dist/metisMenu.css',
     paths.css
   ])
     .pipe(plugins.plumber())
     .pipe(plugins.minifyCss())
     .pipe(plugins.concat('styles.min.css')).pipe(gulp.dest(paths.output))
     .pipe(browserSync.stream());
-});
-
-gulp.task('scripts-common', function () {
-  return gulp.src([
-    paths.nodePath + 'bootstrap/dist/js/bootstrap.js',
-    paths.nodePath + 'jquery/dist/jquery.js'
-  ])
-    .pipe(plugins.plumber())
-    .pipe(plugins.uglify({ mangle: false }))
-    .pipe(gulp.dest(paths.output))
 });
 
   // copies changed patterns files to the output directory
@@ -81,7 +69,7 @@ gulp.task('scripts-common', function () {
   gulp.task('build', function (callback) {
     return runSequence(
       'clean',
-      ['build-system', 'build-html', 'build-patterns', 'build-css', 'scripts-common'],
+      ['build-system', 'build-html', 'build-patterns', 'build-css'],
       callback
     );
   });
