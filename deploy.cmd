@@ -105,7 +105,23 @@ IF EXIST "%DEPLOYMENT_TARGET%\package.json" (
   popd
 )
 
-:: 4. Build the webclient
+:: 4. Install jspm packages
+IF EXIST "%DEPLOYMENT_TARGET%\package.json" (
+  pushd "%DEPLOYMENT_TARGET%"
+  call :ExecuteCmd jspm install
+  IF !ERRORLEVEL! NEQ 0 goto error
+  popd
+)
+
+:: 5. Install typings
+IF EXIST "%DEPLOYMENT_TARGET%\typings.json" (
+  pushd "%DEPLOYMENT_TARGET%"
+  call :ExecuteCmd typings install
+  IF !ERRORLEVEL! NEQ 0 goto error
+  popd
+)
+
+:: 6. Build the webclient
 IF EXIST "%DEPLOYMENT_TARGET%\Gulpfile.js" (
   pushd "%DEPLOYMENT_TARGET%"
   echo "Building web site using Gulp"
