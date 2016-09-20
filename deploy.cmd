@@ -27,7 +27,14 @@ IF NOT DEFINED DEPLOYMENT_SOURCE (
 )
 
 IF NOT DEFINED DEPLOYMENT_TARGET (
-  SET DEPLOYMENT_TARGET=%ARTIFACTS%\wwwroot
+  SET DEPLOYMENT_TARGET=%ARTIFACTS%
+)
+IF NOT DEFINED DEPLOYMENT_CLIENT_TARGET (
+  SET DEPLOYMENT_CLIENT_TARGET=%ARTIFACTS%\client
+)
+
+IF NOT DEFINED DEPLOYMENT_SERVER_TARGET (
+  SET DEPLOYMENT_SERVER_TARGET=%ARTIFACTS%\server
 )
 
 IF NOT DEFINED NEXT_MANIFEST_PATH (
@@ -56,7 +63,7 @@ goto Deployment
 
 IF DEFINED KUDU_SELECT_NODE_VERSION_CMD (
   :: The following are done only on Windows Azure Websites environment
-  call %KUDU_SELECT_NODE_VERSION_CMD% "%DEPLOYMENT_SOURCE%" "%DEPLOYMENT_TARGET%" "%DEPLOYMENT_TEMP%"
+  call %KUDU_SELECT_NODE_VERSION_CMD% "%DEPLOYMENT_SOURCE%" "%DEPLOYMENT_CLIENT_TARGET%" "%DEPLOYMENT_TEMP%"
   IF !ERRORLEVEL! NEQ 0 goto error
 
   IF EXIST "%DEPLOYMENT_TEMP%\__nodeVersion.tmp" (
@@ -98,8 +105,8 @@ IF /I "%IN_PLACE_DEPLOYMENT%" NEQ "1" (
 call :SelectNodeVersion
 
 :: 3. Install npm packages
-IF EXIST "%DEPLOYMENT_TARGET%\package.json" (
-  pushd "%DEPLOYMENT_TARGET%"
+IF EXIST "%DEPLOYMENT_CLIENT_TARGET%\package.json" (
+  pushd "%DEPLOYMENT_CLIENT_TARGET%"
   call :ExecuteCmd !NPM_CMD! install
   call :ExecuteCmd !NPM_CMD! install jspm -g
   call :ExecuteCmd !NPM_CMD! install typings -g
@@ -108,29 +115,41 @@ IF EXIST "%DEPLOYMENT_TARGET%\package.json" (
 )
 
 :: 4. Install jspm packages
-IF EXIST "%DEPLOYMENT_TARGET%\package.json" (
-  pushd "%DEPLOYMENT_TARGET%"
+IF EXIST "%DEPLOYMENT_CLIENT_TARGET%\package.json" (
+  pushd "%DEPLOYMENT_CLIENT_TARGET%"
   call :ExecuteCmd jspm install
   IF !ERRORLEVEL! NEQ 0 goto error
   popd
 )
 
 :: 5. Install typings
-IF EXIST "%DEPLOYMENT_TARGET%\typings.json" (
-  pushd "%DEPLOYMENT_TARGET%"
+IF EXIST "%DEPLOYMENT_CLIENT_TARGET%\typings.json" (
+  pushd "%DEPLOYMENT_CLIENT_TARGET%"
   call :ExecuteCmd typings install
   IF !ERRORLEVEL! NEQ 0 goto error
   popd
 )
 
 :: 6. Build the webclient
-IF EXIST "%DEPLOYMENT_TARGET%\Gulpfile.js" (
-  pushd "%DEPLOYMENT_TARGET%"
+  pushd "%DEPLOYMENT_CLIENT_TARGET%"
   echo "Building web site using Gulp"
-  call :ExecuteCmd ".\node_modules\.bin\gulp.cmd"
+  call :ExecuteCmd gulp build
   if !ERRORLEVEL! NEQ 0 goto error
   popd
-)
+
+:: 7. Build server
+  pushd "%DEPLOYMENT_SERVER_TARGET%"
+  echo "Building server"
+  call :ExecuteCmd npm install
+  if !ERRORLEVEL! NEQ 0 goto error
+  popd
+
+  :: 8. Run server
+  pushd "%DEPLOYMENT_SERVER_TARGET%"
+  echo "Running server"
+  call :ExecuteCmd npm start
+  if !ERRORLEVEL! NEQ 0 goto error
+  popd
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 goto end
