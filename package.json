@@ -41,5 +41,6 @@
   "scripts": {
     "test": "gulp test",
     "start": "node app.js"
-  }
+  },
+  "postinstall": "jspm install"
 }
