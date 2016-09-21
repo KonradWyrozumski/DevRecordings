@@ -124,13 +124,18 @@ IF EXIST "%DEPLOYMENT_TARGET%\typings.json" (
 )
 
 :: 6. Build the webclient
-IF EXIST "%DEPLOYMENT_TARGET%\Gulpfile.js" (
   pushd "%DEPLOYMENT_TARGET%"
   echo "Building web site using Gulp"
-  call :ExecuteCmd ".\node_modules\.bin\gulp.cmd"
+  call :ExecuteCmd gulp build
   if !ERRORLEVEL! NEQ 0 goto error
   popd
-)
+
+:: 7. Running server
+  pushd "%DEPLOYMENT_TARGET%"
+  echo "Runnning server"
+  call :ExecuteCmd !NPM_CMD! start
+  if !ERRORLEVEL! NEQ 0 goto error
+  popd
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 goto end
