@@ -8,7 +8,7 @@ function reportChange(event) {
   console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
 }
 
-gulp.task('nodemon', function (cb) {
+gulp.task('nodemon', ['build'], function (cb) {
   var called = false;
   return nodemon({
     script: 'app.js'

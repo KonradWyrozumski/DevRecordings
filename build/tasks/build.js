@@ -70,6 +70,7 @@ gulp.task('build-css', function () {
     return runSequence(
       'clean',
       ['build-system', 'build-html', 'build-patterns', 'build-css'],
+      'bundle',
       callback
     );
   });

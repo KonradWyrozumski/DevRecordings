@@ -9,8 +9,8 @@ var config = {
   bundles: bundles.bundles
 };
 
-gulp.task('bundle', ['build'], function() {
-  return bundler.bundle(config);
+gulp.task('bundle', function() {  
+ return bundler.bundle(config);
 });
 
 gulp.task('unbundle', function() {
