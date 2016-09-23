@@ -13,7 +13,7 @@
     "aurelia-bundler": "^0.4.0",
     "aurelia-framework": "^1.0.3",
     "aurelia-router": "^1.0.3",
-    "body-parser": "^1.15.0",
+    "body-parser": "^1.15.2",
     "browser-sync": "^2.14.3",
     "cookie-parser": "^1.4.1",
     "del": "^2.2.2",
@@ -40,8 +40,7 @@
   },
   "scripts": {
     "test": "gulp test",
-    "start": "node dist/server.js",
-    "postinstall": "npm install -g jspm && npm install typings -g && jspm install && typings install && gulp build"
+    "start": "node dist/server.js"
   },
   "devDependencies": {}
 }
