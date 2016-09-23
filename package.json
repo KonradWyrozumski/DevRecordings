@@ -40,7 +40,8 @@
   },
   "scripts": {
     "test": "gulp test",
-    "start": "node app.js"
+    "start": "node dist/server.js",
+    "postinstall": "npm install -g jspm && npm install typings -g && jspm install && typings install && gulp build"
   },
-  "postinstall": "jspm install"
+  "devDependencies": {}
 }

@@ -11,7 +11,7 @@ function reportChange(event) {
 gulp.task('nodemon', ['build'], function (cb) {
   var called = false;
   return nodemon({
-    script: 'app.js'
+    script: 'dist/server.js'
   })
   .on('start', function onStart() {
     if (!called) {
