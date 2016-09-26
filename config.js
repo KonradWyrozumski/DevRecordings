@@ -135,38 +135,149 @@ System.config({
     }
   },
   depCache: {
-    "main.js": [
-      "jquery",
-      "bootstrap"
-    ],
-    "mylist.js": [
-      "aurelia-framework",
-      "./notification-state"
-    ],
     "notification-state.js": [
       "toastr"
+    ],
+    "github:CodeSeven/toastr@2.1.3.js": [
+      "github:CodeSeven/toastr@2.1.3/toastr"
+    ],
+    "github:CodeSeven/toastr@2.1.3/toastr.js": [
+      "jquery",
+      "./build/toastr.css!"
+    ],
+    "github:components/jquery@3.1.0.js": [
+      "github:components/jquery@3.1.0/jquery.js"
     ],
     "notification.js": [
       "aurelia-framework",
       "./notification-state"
     ],
-    "server.js": [
-      "body-parser",
-      "express",
-      "path",
-      "./routes/index"
+    "npm:aurelia-framework@1.0.2.js": [
+      "npm:aurelia-framework@1.0.2/aurelia-framework"
+    ],
+    "npm:aurelia-framework@1.0.2/aurelia-framework.js": [
+      "aurelia-dependency-injection",
+      "aurelia-binding",
+      "aurelia-metadata",
+      "aurelia-templating",
+      "aurelia-loader",
+      "aurelia-task-queue",
+      "aurelia-path",
+      "aurelia-pal",
+      "aurelia-logging"
+    ],
+    "npm:aurelia-dependency-injection@1.0.0.js": [
+      "npm:aurelia-dependency-injection@1.0.0/aurelia-dependency-injection"
+    ],
+    "npm:aurelia-binding@1.0.3.js": [
+      "npm:aurelia-binding@1.0.3/aurelia-binding"
+    ],
+    "npm:aurelia-metadata@1.0.0.js": [
+      "npm:aurelia-metadata@1.0.0/aurelia-metadata"
+    ],
+    "npm:aurelia-templating@1.0.1.js": [
+      "npm:aurelia-templating@1.0.1/aurelia-templating"
+    ],
+    "npm:aurelia-loader@1.0.0.js": [
+      "npm:aurelia-loader@1.0.0/aurelia-loader"
+    ],
+    "npm:aurelia-task-queue@1.0.0.js": [
+      "npm:aurelia-task-queue@1.0.0/aurelia-task-queue"
+    ],
+    "npm:aurelia-path@1.0.0.js": [
+      "npm:aurelia-path@1.0.0/aurelia-path"
+    ],
+    "npm:aurelia-pal@1.0.0.js": [
+      "npm:aurelia-pal@1.0.0/aurelia-pal"
+    ],
+    "npm:aurelia-logging@1.0.0.js": [
+      "npm:aurelia-logging@1.0.0/aurelia-logging"
+    ],
+    "npm:aurelia-dependency-injection@1.0.0/aurelia-dependency-injection.js": [
+      "aurelia-metadata",
+      "aurelia-pal"
+    ],
+    "npm:aurelia-binding@1.0.3/aurelia-binding.js": [
+      "aurelia-logging",
+      "aurelia-pal",
+      "aurelia-task-queue",
+      "aurelia-metadata"
+    ],
+    "npm:aurelia-metadata@1.0.0/aurelia-metadata.js": [
+      "aurelia-pal"
+    ],
+    "npm:aurelia-templating@1.0.1/aurelia-templating.js": [
+      "aurelia-logging",
+      "aurelia-metadata",
+      "aurelia-pal",
+      "aurelia-path",
+      "aurelia-loader",
+      "aurelia-dependency-injection",
+      "aurelia-binding",
+      "aurelia-task-queue"
+    ],
+    "npm:aurelia-loader@1.0.0/aurelia-loader.js": [
+      "aurelia-path",
+      "aurelia-metadata"
+    ],
+    "npm:aurelia-task-queue@1.0.0/aurelia-task-queue.js": [
+      "aurelia-pal"
+    ],
+    "mylist.js": [
+      "aurelia-framework",
+      "./notification-state"
+    ],
+    "main.js": [
+      "jquery",
+      "bootstrap"
+    ],
+    "npm:jquery@3.1.0.js": [
+      "npm:jquery@3.1.0/dist/jquery.js"
+    ],
+    "github:twbs/bootstrap@3.3.7.js": [
+      "github:twbs/bootstrap@3.3.7/js/bootstrap.js"
+    ],
+    "github:twbs/bootstrap@3.3.7/js/bootstrap.js": [
+      "jquery"
     ]
   },
   bundles: {
-    "app-build.js": [
+    "client-app-build.js": [
       "app.js",
+      "github:CodeSeven/toastr@2.1.3.js",
+      "github:CodeSeven/toastr@2.1.3/build/toastr.css!github:systemjs/plugin-css@0.1.27.js",
+      "github:CodeSeven/toastr@2.1.3/toastr.js",
+      "github:components/jquery@3.1.0.js",
+      "github:components/jquery@3.1.0/jquery.js",
+      "github:twbs/bootstrap@3.3.7.js",
+      "github:twbs/bootstrap@3.3.7/js/bootstrap.js",
       "home.js",
       "main.js",
       "mylist.js",
       "notification-state.js",
       "notification.js",
-      "routes/index.js",
-      "server.js"
+      "npm:aurelia-binding@1.0.3.js",
+      "npm:aurelia-binding@1.0.3/aurelia-binding.js",
+      "npm:aurelia-dependency-injection@1.0.0.js",
+      "npm:aurelia-dependency-injection@1.0.0/aurelia-dependency-injection.js",
+      "npm:aurelia-framework@1.0.2.js",
+      "npm:aurelia-framework@1.0.2/aurelia-framework.js",
+      "npm:aurelia-loader@1.0.0.js",
+      "npm:aurelia-loader@1.0.0/aurelia-loader.js",
+      "npm:aurelia-logging@1.0.0.js",
+      "npm:aurelia-logging@1.0.0/aurelia-logging.js",
+      "npm:aurelia-metadata@1.0.0.js",
+      "npm:aurelia-metadata@1.0.0/aurelia-metadata.js",
+      "npm:aurelia-pal@1.0.0.js",
+      "npm:aurelia-pal@1.0.0/aurelia-pal.js",
+      "npm:aurelia-path@1.0.0.js",
+      "npm:aurelia-path@1.0.0/aurelia-path.js",
+      "npm:aurelia-task-queue@1.0.0.js",
+      "npm:aurelia-task-queue@1.0.0/aurelia-task-queue.js",
+      "npm:aurelia-templating@1.0.1.js",
+      "npm:aurelia-templating@1.0.1/aurelia-templating.js",
+      "npm:jquery@3.1.0.js",
+      "npm:jquery@3.1.0/dist/jquery.js"
     ],
     "aurelia.js": [
       "github:twbs/bootstrap@3.3.7.js",

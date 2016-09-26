@@ -1,8 +1,13 @@
 module.exports = {
   "bundles": {
-    "dist/app-build": {
+    "dist/client-app-build": {
       "includes": [
-        "[**/*.js]"
+        "app.js",
+        "home.js",
+        "main.js",
+        "mylist.js",
+        "notification.js",
+        "notification-state.js"        
       ],
       "options": {
         "inject": true,
