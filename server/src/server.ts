@@ -1,8 +1,10 @@
+/// <reference path="../typings/index.d.ts" />
+
 import * as bodyParser from "body-parser";
 import * as express from "express";
 import * as path from "path";
 import * as logger from "morgan";
-import * as indexRoute from "./routes/index";
+import * as indexRoute from "./config/routes/index";
 
 class Server {
 
@@ -34,9 +36,11 @@ class Server {
 
     this.app.use(bodyParser.urlencoded({ extended: false }));
 
-    this.app.use(express.static(path.join(__dirname, ".")));
-    this.app.use(express.static(path.join(__dirname, "..")));
-
+    this.app.use(express.static(path.join(__dirname, "../client")));
+    this.app.use(express.static(path.join(__dirname, "../../node_modules")));
+    this.app.use(express.static(path.join(__dirname, "../../jspm_packages")));
+    this.app.use(express.static(path.join(__dirname, "../../")));
+    
     this.app.set('port', process.env.PORT || 9000);
   }
 

@@ -1,4 +1,4 @@
-var appRoot = 'src/';
+var appRoot = 'client/src/';
 var outputRoot = 'dist/';
 var exporSrvtRoot = 'export/';
 var nodePath = 'node_modules/';

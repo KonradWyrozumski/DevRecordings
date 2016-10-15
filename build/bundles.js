@@ -1,22 +1,22 @@
 module.exports = {
   "bundles": {
-    "dist/client-app-build": {
+    "dist/client/app/client-app-build": {
       "includes": [
         "app.js",
         "home.js",
         "main.js",
         "mylist.js",
         "notification.js",
-        "notification-state.js"        
+        "notification-state.js"          
       ],
       "options": {
         "inject": true,
-        "minify": true,
-        "depCache": true,
+        "minify": false,
+        "depCache": false,
         "rev": false
       }
     },
-    "dist/aurelia": {
+    "dist/client/app/aurelia": {
       "includes": [
         "aurelia-framework",
         "aurelia-bootstrapper",
