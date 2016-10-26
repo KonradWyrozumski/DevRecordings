@@ -11,14 +11,15 @@ var htmlmin = require('gulp-htmlmin');
 var del = require("del");
 var bundler = require('aurelia-bundler');
 var bundles = require('./build/bundles.js');
+var nodemon = require('gulp-nodemon');
 
 var typescriptCompiler = typescriptCompiler || null;
 
 var config = {
-  force: true,
-  baseURL: '.',
-  configPath: './config.js',
-  bundles: bundles.bundles
+    force: true,
+    baseURL: '.',
+    configPath: './config.js',
+    bundles: bundles.bundles
 };
 
 /**
@@ -33,9 +34,9 @@ gulp.task('clean', (cb) => {
  */
 gulp.task('build:client', function () {
     typescriptCompiler = typescript.createProject('./client/tsconfig.json', {
-      "typescript": require('typescript')
+        "typescript": require('typescript')
     });
-  var tsResult = gulp.src('client/**/*.ts')
+    var tsResult = gulp.src('client/**/*.ts')
         .pipe(sourcemaps.init())
         .pipe(typescript(typescriptCompiler));
     return tsResult.js
@@ -48,7 +49,7 @@ gulp.task('build:client', function () {
  */
 gulp.task('build:server', function () {
     typescriptCompiler = typescript.createProject('./server/tsconfig.json', {
-      "typescript": require('typescript')
+        "typescript": require('typescript')
     });
     var tsResult = gulp.src('server/src/**/*.ts')
         .pipe(plumber({ errorHandler: notify.onError('Error: <%= error.message %>') }))
@@ -63,23 +64,23 @@ gulp.task('build:server', function () {
  * Copy all resources that are not TypeScript files into build directory. e.g. index.html, css, images
  */
 gulp.task("clientResources", () => {
-    return gulp.src(["client/**/*", "!**/*.cmd" , "!**/*.md" ,"!**/*.ts", "!client/typings", "!client/typings/**", "!client/*.json"])
+    return gulp.src(["client/**/*", "!**/*.cmd", "!**/*.md", "!**/*.ts", "!client/typings", "!client/typings/**", "!client/*.json"])
         .pipe(gulp.dest("dist/client"));
 });
 
-gulp.task('bundle', function() {  
- return bundler.bundle(config);
+gulp.task('bundle', function () {
+    return bundler.bundle(config);
 });
 
-gulp.task('unbundle', function() {
-  return bundler.unbundle(config);
+gulp.task('unbundle', function () {
+    return bundler.unbundle(config);
 });
 
 /**
  * Watch for changes in TypeScript, HTML and CSS files.
  */
-gulp.task('watch', function () {
-    gulp.watch(["client/**/*.ts"], ['compile']).on('change', function (e) {
+gulp.task('watch', ['start'], function () {
+    gulp.watch(["client/**/*.ts"], ['build:client']).on('change', function (e) {
         console.log('TypeScript file ' + e.path + ' has been changed. Compiling.');
     });
 
@@ -87,7 +88,7 @@ gulp.task('watch', function () {
         console.log('Resource file ' + e.path + ' has been changed. Updating.');
     });
 
-    gulp.watch(["server/src/**/*.ts"], ['compile']).on('change', function (e) {
+    gulp.watch(["server/src/**/*.ts"], ['build:server']).on('change', function (e) {
         console.log('TypeScript file ' + e.path + ' has been changed. Compiling.');
     });
 });
@@ -100,7 +101,20 @@ gulp.task('watch', function () {
  * 4. Copy the resources
  * 5. Copy the dependencies.
  */
-
 gulp.task("build", function (callback) {
     runSequence('clean', 'build:server', 'build:client', 'clientResources', 'bundle', callback);
+});
+
+gulp.task('start', ['build'], function () {
+    nodemon({
+        script: 'dist/server/server.js'
+    })
+    .on('start', function onStart() {
+        console.log('Start nodemon');
+    })
+        .on('restart', function onRestart() {
+            setTimeout(function reload() {
+                browserSync.reload();
+            }, 500);
+        });
 });

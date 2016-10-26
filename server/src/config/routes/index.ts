@@ -1,14 +1,15 @@
 import * as express from "express";
+import DevRecordings = require('../routes/DevRecordings');
 
-module Route {
+var app = express();
 
-  export class Index {
+class Routes {
 
-    public index(req: express.Request, res: express.Response, next: express.NextFunction) {
-      //render page
-      res.render("../client/index.html");
+    get routes() {
+
+        app.use("/", new DevRecordings().routes);
+        
+        return app;
     }
-  }
 }
-
-export = Route;
+export = Routes;

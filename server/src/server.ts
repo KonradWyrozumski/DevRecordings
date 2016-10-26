@@ -4,7 +4,7 @@ import * as bodyParser from "body-parser";
 import * as express from "express";
 import * as path from "path";
 import * as logger from "morgan";
-import * as indexRoute from "./config/routes/index";
+import BaseRoutes = require("./config/routes/index");
 
 class Server {
 
@@ -46,14 +46,7 @@ class Server {
 
   
   private routes() {
-    let router: express.Router;
-    router = express.Router();
-
-    var index: indexRoute.Index = new indexRoute.Index();
-
-    router.get("/", index.index.bind(index.index));
-
-    this.app.use(router);
+    this.app.use('/api', new BaseRoutes().routes);
   }
 
   private allowCrossDomain = function(req, res, next) {
