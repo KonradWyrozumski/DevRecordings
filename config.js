@@ -45,6 +45,7 @@ System.config({
       "npm:aurelia-templating@1.0.1/aurelia-templating.js",
       "npm:jquery@3.1.0.js",
       "npm:jquery@3.1.0/dist/jquery.js",
+      "services/FetchService.js",
       "services/PostService.js"
     ],
     "aurelia.js": [

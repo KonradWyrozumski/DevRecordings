@@ -170,3 +170,23 @@ body {
 .white-bg {
   background-color: #ffffff;
 }
+
+/* BOX */
+.ibox {
+  clear: both;
+  display: inline-block;
+  margin-bottom: 25px;
+  margin-left:25px;
+  margin-top: 0;
+  padding: 0;
+}
+.ibox-content {
+  clear: both;
+  background-color: #ffffff;
+  color: inherit;
+  padding: 15px 20px 20px 20px;
+  border-color: #e7eaec;
+  border-image: none;
+  border-style: solid solid none;
+  border-width: 1px 0;
+}

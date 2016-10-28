@@ -1,10 +1,15 @@
 <template>
-    <form role="form" class="form-add-mylist" submit.delegate = "addNewRecording()">
-        <div class="input-group">
-            <input type="text" placeholder="http://..." class="form-control" name="add-mylist" value.bind="address">
-            <span class="input-group-btn">
+	<form role="form" class="form-add-mylist" submit.delegate="addNewRecording()">
+		<div class="input-group">
+			<input type="text" placeholder="http://..." class="form-control" name="add-mylist" value.bind="address">
+			<span class="input-group-btn">
                 <button class="btn btn-primary">Add!</button>
             </span>
-        </div>
-    </form>
+		</div>
+	</form>
+	<div repeat.for="recording of recordings" class="ibox float-e-margins">
+		<div class="ibox-content">
+			<a href.bind="recording.address">${recording.address}</a>
+		</div>
+	</div>
 </template>
