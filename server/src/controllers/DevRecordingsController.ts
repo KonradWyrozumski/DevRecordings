@@ -10,7 +10,6 @@ class DevRecordingsController implements IBaseController <DevRecordingsBusiness>
         try {
 
             var model: IDevRecordingsModel = <IDevRecordingsModel>req.body;
-
             var devRecordingsBusiness = new DevRecordingsBusiness();
             devRecordingsBusiness.create(model, (error, result) => {
                 if(error) res.send({"error": "error"});

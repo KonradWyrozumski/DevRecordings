@@ -2,6 +2,13 @@
   "globalDevDependencies": {
     "jquery": "registry:dt/jquery#1.10.0+20160908203239",
     "morgan": "registry:dt/morgan#1.7.0+20160524142355",
-    "toastr": "registry:dt/toastr#2.1.1+20160510010435"
+    "toastr": "registry:dt/toastr#2.1.1+20160510010435",
+    "whatwg-fetch": "registry:dt/whatwg-fetch#0.0.0+20160829180742",
+    "whatwg-streams": "registry:dt/whatwg-streams#0.0.0+20160829180742"
+  },
+  "globalDependencies": {
+    "url-search-params-typing": "github:RomkeVdMeulen/URLSearchParams",
+    "whatwg-fetch": "registry:dt/whatwg-fetch#0.0.0+20161004182750",
+    "whatwg-streams": "registry:dt/whatwg-streams#0.0.0+20160829180742"
   }
 }

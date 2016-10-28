@@ -25,6 +25,8 @@ System.config({
       "npm:aurelia-binding@1.0.3/aurelia-binding.js",
       "npm:aurelia-dependency-injection@1.0.0.js",
       "npm:aurelia-dependency-injection@1.0.0/aurelia-dependency-injection.js",
+      "npm:aurelia-fetch-client@1.0.1.js",
+      "npm:aurelia-fetch-client@1.0.1/aurelia-fetch-client.js",
       "npm:aurelia-framework@1.0.2.js",
       "npm:aurelia-framework@1.0.2/aurelia-framework.js",
       "npm:aurelia-loader@1.0.0.js",
@@ -42,7 +44,8 @@ System.config({
       "npm:aurelia-templating@1.0.1.js",
       "npm:aurelia-templating@1.0.1/aurelia-templating.js",
       "npm:jquery@3.1.0.js",
-      "npm:jquery@3.1.0/dist/jquery.js"
+      "npm:jquery@3.1.0/dist/jquery.js",
+      "services/PostService.js"
     ],
     "aurelia.js": [
       "github:twbs/bootstrap@3.3.7.js",
@@ -55,6 +58,8 @@ System.config({
       "npm:aurelia-dependency-injection@1.0.0/aurelia-dependency-injection.js",
       "npm:aurelia-event-aggregator@1.0.0.js",
       "npm:aurelia-event-aggregator@1.0.0/aurelia-event-aggregator.js",
+      "npm:aurelia-fetch-client@1.0.1.js",
+      "npm:aurelia-fetch-client@1.0.1/aurelia-fetch-client.js",
       "npm:aurelia-framework@1.0.2.js",
       "npm:aurelia-framework@1.0.2/aurelia-framework.js",
       "npm:aurelia-history-browser@1.0.0.js",
@@ -458,6 +463,7 @@ System.config({
   },
   map: {
     "aurelia-bootstrapper": "npm:aurelia-bootstrapper@1.0.0",
+    "aurelia-fetch-client": "npm:aurelia-fetch-client@1.0.1",
     "aurelia-framework": "npm:aurelia-framework@1.0.2",
     "bootstrap": "github:twbs/bootstrap@3.3.7",
     "jquery": "npm:jquery@3.1.0",

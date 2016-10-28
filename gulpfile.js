@@ -102,7 +102,9 @@ gulp.task('watch', ['start'], function () {
  * 5. Copy the dependencies.
  */
 gulp.task("build", function (callback) {
-    runSequence('clean', 'build:server', 'build:client', 'clientResources', 'bundle', callback);
+    runSequence('clean', 'build:server', 'build:client', 'clientResources', 
+    'bundle', 
+    callback);
 });
 
 gulp.task('start', ['build'], function () {

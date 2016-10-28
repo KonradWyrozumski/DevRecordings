@@ -7,7 +7,7 @@ module.exports = {
         "main.js",
         "mylist.js",
         "notification.js",
-        "notification-state.js"          
+        "notification-state.js"
       ],
       "options": {
         "inject": true,
@@ -19,6 +19,7 @@ module.exports = {
     "dist/client/app/aurelia": {
       "includes": [
         "aurelia-framework",
+        "aurelia-fetch-client",
         "aurelia-bootstrapper",
         "aurelia-router",
         "aurelia-templating",
