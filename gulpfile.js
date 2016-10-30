@@ -80,7 +80,8 @@ gulp.task('unbundle', function () {
  * Watch for changes in TypeScript, HTML and CSS files.
  */
 gulp.task('watch', ['start'], function () {
-    gulp.watch(["client/**/*.ts"], ['build:client']).on('change', function (e) {
+    gulp.watch(["client/**/*.ts"]).on('change', function (e) {
+        runSequence('build:client', 'bundle');
         console.log('TypeScript file ' + e.path + ' has been changed. Compiling.');
     });
 
@@ -88,9 +89,15 @@ gulp.task('watch', ['start'], function () {
         console.log('Resource file ' + e.path + ' has been changed. Updating.');
     });
 
-    gulp.watch(["server/src/**/*.ts"], ['build:server']).on('change', function (e) {
+    gulp.watch(["server/src/**/*.ts"]).on('change', function (e) {
+        runSequence('build:server', 'bundle');
         console.log('TypeScript file ' + e.path + ' has been changed. Compiling.');
     });
+});
+
+gulp.task('set-dev-node-env', function () {
+    console.log('setting env to development');
+    return process.env.NODE_ENV = 'development';
 });
 
 /**
@@ -102,18 +109,23 @@ gulp.task('watch', ['start'], function () {
  * 5. Copy the dependencies.
  */
 gulp.task("build", function (callback) {
-    runSequence('clean', 'build:server', 'build:client', 'clientResources', 
-    'bundle', 
-    callback);
+    runSequence('clean', 'build:server', 'build:client', 'clientResources',
+        'bundle',
+        callback);
 });
 
 gulp.task('start', ['build'], function () {
     nodemon({
-        script: 'dist/server/server.js'
+        // verbose: true,
+        ignore: 'dist/*',
+        script: 'dist/server/server.js',
+        env: {
+            'NODE_ENV': 'development'
+        }
     })
-    .on('start', function onStart() {
-        console.log('Start nodemon');
-    })
+        .on('start', function onStart() {
+            console.log('Start nodemon');
+        })
         .on('restart', function onRestart() {
             setTimeout(function reload() {
                 browserSync.reload();
