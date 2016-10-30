@@ -24,7 +24,7 @@ export class MyList {
             .then(response => {
                 if (response.ok) {
                     this.notificationState.notify('success', 'Added');
-                    this.recordings.push({ address: this.address });
+                    this.updateRecordings();
                 }
                 else {
                     this.notificationState.notify('error', 'Something went wrong');
@@ -38,5 +38,10 @@ export class MyList {
             .then(data => {
                 this.recordings = data;
             });
+    }
+
+    updateRecordings() {
+        this.recordings.push({ address: this.address });
+        this.address = '';
     }
 }
