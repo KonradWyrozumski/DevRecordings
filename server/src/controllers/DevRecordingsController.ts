@@ -5,10 +5,8 @@ import IBaseController = require("./BaseController");
 import IDevRecordingsModel = require("./../app/model/interfaces/IDevRecordingsModel");
 
 class DevRecordingsController implements IBaseController <DevRecordingsBusiness> {
-
     create(req: express.Request, res: express.Response): void {
         try {
-
             var model: IDevRecordingsModel = <IDevRecordingsModel>req.body;
             var devRecordingsBusiness = new DevRecordingsBusiness();
             devRecordingsBusiness.create(model, (error, result) => {
@@ -19,9 +17,9 @@ class DevRecordingsController implements IBaseController <DevRecordingsBusiness>
         catch (e)  {
             console.log(e);
             res.send({"error": "error in your request"});
-
         }
     }
+
     update(req: express.Request, res: express.Response): void {
         try {
             var model: IDevRecordingsModel = <IDevRecordingsModel>req.body;
@@ -38,6 +36,7 @@ class DevRecordingsController implements IBaseController <DevRecordingsBusiness>
 
         }
     }
+    
     delete(req: express.Request, res: express.Response): void {
         try {
 
@@ -54,6 +53,7 @@ class DevRecordingsController implements IBaseController <DevRecordingsBusiness>
 
         }
     }
+
     retrieve(req: express.Request, res: express.Response): void {
         try {
 
@@ -69,6 +69,7 @@ class DevRecordingsController implements IBaseController <DevRecordingsBusiness>
 
         }
     }
+    
     findById(req: express.Request, res: express.Response): void {
         try {
 

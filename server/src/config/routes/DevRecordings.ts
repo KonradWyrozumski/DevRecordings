@@ -11,11 +11,11 @@ class DevRecordingsRoutes {
     get routes () {
         var controller = this._devRecordingsController;
 
-        router.get("/recordings", controller.retrieve);
-        router.post("/recordings", controller.create);
-        router.put("/recordings/:_id", controller.update);
-        router.get("/recordings/:_id", controller.findById);
-        router.delete("/recordings/:_id", controller.delete);
+        router.get("/", controller.retrieve);
+        router.post("/", controller.create);
+        router.put("/:_id", controller.update);
+        router.get("/:_id", controller.findById);
+        router.delete("/:_id", controller.delete);
 
         return router;
     }

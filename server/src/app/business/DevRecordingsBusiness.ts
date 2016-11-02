@@ -1,10 +1,10 @@
 import RecordingsRepository = require("./../repository/RecordingsRepository");
-import IHeroBusiness = require("./interfaces/IDevRecordingsBusiness");
+import IDevRecordingsBusiness = require("./interfaces/IDevRecordingsBusiness");
 import IDevRecordingsModel = require("./../model/interfaces/IDevRecordingsModel");
-import HeroModel = require("./../model/DevRecordingsModel");
+import DevRecordingsModel = require("./../model/DevRecordingsModel");
 
 
-class DevRecordingsBusiness implements IHeroBusiness {
+class DevRecordingsBusiness implements IDevRecordingsBusiness {
     private _recordingsRepository: RecordingsRepository;
 
     constructor () {

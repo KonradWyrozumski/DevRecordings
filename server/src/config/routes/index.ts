@@ -7,8 +7,7 @@ class Routes {
 
     get routes() {
 
-        app.use("/", new DevRecordings().routes);
-        
+        app.use("/recordings", new DevRecordings().routes);
         return app;
     }
 }

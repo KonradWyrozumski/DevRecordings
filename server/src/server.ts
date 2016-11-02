@@ -5,6 +5,7 @@ import * as express from "express";
 import * as path from "path";
 import * as logger from "morgan";
 import BaseRoutes = require("./config/routes/index");
+import AuthRoutes = require('./config/routes/AuthRoutes');
 
 class Server {
 
@@ -47,6 +48,7 @@ class Server {
   
   private routes() {
     this.app.use('/api', new BaseRoutes().routes);
+    this.app.use("/auth", new AuthRoutes().routes);
   }
 
   private allowCrossDomain = function(req, res, next) {
