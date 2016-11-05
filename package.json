@@ -46,6 +46,7 @@
     "moment": "^2.15.2",
     "mongoose": "^4.6.3",
     "morgan": "^1.7.0",
+    "request": "^2.78.0",
     "require-dir": "^0.3.0",
     "run-sequence": "^1.2.2",
     "serve-favicon": "^2.3.0",

@@ -5,14 +5,16 @@ var router = express.Router();
 class AuthRoutes {
     private _authController: AuthController;
 
-    constructor () {
+    constructor() {
         this._authController = new AuthController();
     }
-    get routes () {
+    get routes() {
         var controller = this._authController;
 
         router.post("/login", controller.login);
         router.post("/signup", controller.signup);
+        router.post("/google", controller.authenticate);
+
         return router;
     }
 

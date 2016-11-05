@@ -1,13 +1,19 @@
 import { Router, RouterConfiguration } from 'aurelia-router';
-import { AuthService, AuthorizeStep } from 'aurelia-auth';
+import { AuthService, AuthorizeStep, FetchConfig } from 'aurelia-auth';
 import { inject } from 'aurelia-framework';
 
-@inject(AuthService)
+@inject(AuthService, FetchConfig)
 export class App {
-  router: Router;
 
-  constructor(public authService: AuthService) {
-    console.log(authService.isAuthenticated());
+  router: Router;
+  fetchConfig: FetchConfig;
+
+  constructor(public authService: AuthService, fetchConfig: FetchConfig) {
+    this.fetchConfig = fetchConfig;
+  }
+
+  activate() {
+    this.fetchConfig.configure();
   }
 
   configureRouter(config: RouterConfiguration, router: Router) {
@@ -15,7 +21,8 @@ export class App {
     config.addPipelineStep('authorize', AuthorizeStep);
     config.map([
       { route: ['', 'home'], name: 'home', moduleId: 'home', nav: false },
-      { route: ['login'], name: 'login', moduleId: 'login', nav: false, title: 'Log in' },
+      { route: ['login'], name: 'login', moduleId: 'login', nav: false },
+      { route: ['logout'], name: 'logout', moduleId: 'logout', nav: false },
       { route: ['signup'], name: 'signup', moduleId: 'signup', nav: false },
       { route: ['mylist'], name: 'mylist', moduleId: 'mylist', nav: true, title: 'My List' }
     ]);
