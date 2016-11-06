@@ -7,7 +7,8 @@ module.exports = {
         "main.js",
         "mylist.js",
         "notification.js",
-        "notification-state.js"
+        "notification-state.js",
+        "nav-bar.js"
       ],
       "options": {
         "inject": true,

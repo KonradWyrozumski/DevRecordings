@@ -1,22 +1,30 @@
 <template bindable="router, authService">
-    <nav class="navbar-default navbar-static-side" role="navigation">
-        <div class="sidebar-collapse">
-            <ul class="nav metismenu" id="side-menu">
-                <li class="nav-header">
-                    <div class="dropdown profile-element">
-                        <a class="dropdown-toggle" href="#">
-                            <span class="clear"> 
+    <div class="row">
+        <ul if.bind="isAuthenticated" class="nav navbar-top-links navbar-right">
+            <li><a route-href="route: logout"><i class="fa fa-sign-out"></i>Log out</a></li>
+        </ul>
+        <ul if.bind="!isAuthenticated" class="nav navbar-top-links navbar-right">
+            <li><a route-href="route: login"><i class="fa fa-sign-out"></i>Log in</a></li>
+        </ul>
+
+        <nav class="navbar-default navbar-static-side" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav metismenu" id="side-menu">
+                    <li class="nav-header">
+                        <div class="dropdown profile-element">
+                            <a class="dropdown-toggle" href="#">
+                                <span class="clear"> 
                 <span class="block m-t-xs"> 
-                  <strong class="font-bold">${router.title}</strong>
-                  </span>
-                            </span>
-                        </a>
-                    </div>
-                </li>
-                <li repeat.for="row of router.navigation" class="${row.isActive ? 'active' : ''}">
-                    <a href.bind="row.href"><i class="fa fa-th-large"></i> <span class="nav-label">${row.title}</span></a>
-                </li>
-            </ul>
-        </div>
-    </nav>
+                  <strong class="font-bold">${router.title}</strong></span></span>
+                            </a>
+                        </div>
+                    </li>
+                    <li repeat.for="row of router.navigation" class="${row.isActive ? 'active' : ''}">
+                        <a href.bind="row.href"><i class="fa fa-th-large"></i> <span class="nav-label">${row.title}</span></a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+
 </template>

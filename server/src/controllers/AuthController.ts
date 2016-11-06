@@ -59,7 +59,6 @@ class AuthController {
 
             // Step 2. Retrieve profile information about the current user.
             request.get({ url: peopleApiUrl, headers: headers, json: true }, function (err, response, profile) {
-                console.log(profile);
                 // Step 3a. Link user accounts.
                 if (req.headers.authorization) {
                     _userModelBusiness.retrieveOne({ google: profile.sub }, function (err, existingUser) {
@@ -77,7 +76,6 @@ class AuthController {
                             user.displayName = user.displayName || profile.name;
                             user.save(function () {
                                 var token = _authUtils.createJWT(user);
-                                console.log("token sent");
                                 res.send({ token: token });
                             });
                         });
@@ -96,8 +94,6 @@ class AuthController {
                         user.displayName = profile.name;
                         user.save(function (err) {
                             var token = _authUtils.createJWT(user);
-                            console.log("token sent");
-
                             res.send({ token: token });
                         });
                     });

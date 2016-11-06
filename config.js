@@ -11,7 +11,7 @@ System.config({
       "app.js",
       "config/authConfig.js",
       "github:CodeSeven/toastr@2.1.3.js",
-      "github:CodeSeven/toastr@2.1.3/build/toastr.css!github:systemjs/plugin-css@0.1.27.js",
+      "github:CodeSeven/toastr@2.1.3/build/toastr.css!github:systemjs/plugin-css@0.1.32.js",
       "github:CodeSeven/toastr@2.1.3/toastr.js",
       "github:components/jquery@3.1.0.js",
       "github:components/jquery@3.1.0/jquery.js",
@@ -20,6 +20,7 @@ System.config({
       "home.js",
       "main.js",
       "mylist.js",
+      "nav-bar.js",
       "notification-state.js",
       "notification.js",
       "npm:aurelia-auth@3.0.2.js",
@@ -491,6 +492,7 @@ System.config({
     "aurelia-framework": "npm:aurelia-framework@1.0.2",
     "bcryptjs": "npm:bcryptjs@2.3.0",
     "bootstrap": "github:twbs/bootstrap@3.3.7",
+    "font-awesome": "npm:font-awesome@4.7.0",
     "jquery": "npm:jquery@3.1.0",
     "jwt-simple": "npm:jwt-simple@0.5.0",
     "lodash": "npm:lodash@4.16.5",
@@ -498,7 +500,7 @@ System.config({
     "text": "github:systemjs/plugin-text@0.0.2",
     "toastr": "github:CodeSeven/toastr@2.1.3",
     "github:CodeSeven/toastr@2.1.3": {
-      "css": "github:systemjs/plugin-css@0.1.27",
+      "css": "github:systemjs/plugin-css@0.1.32",
       "jquery": "github:components/jquery@3.1.0"
     },
     "github:jspm/nodelibs-assert@0.1.0": {
@@ -806,6 +808,9 @@ System.config({
       "buffer": "github:jspm/nodelibs-buffer@0.1.0",
       "create-hash": "npm:create-hash@1.1.2",
       "crypto": "github:jspm/nodelibs-crypto@0.1.0"
+    },
+    "npm:font-awesome@4.7.0": {
+      "css": "github:systemjs/plugin-css@0.1.32"
     },
     "npm:hash.js@1.0.3": {
       "inherits": "npm:inherits@2.0.1"
