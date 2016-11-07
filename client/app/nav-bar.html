@@ -1,7 +1,7 @@
 <template bindable="router, authService">
     <div class="row">
         <ul if.bind="isAuthenticated" class="nav navbar-top-links navbar-right">
-            <li><a route-href="route: logout"><i class="fa fa-sign-out"></i>Log out</a></li>
+            <li><a route-href="route: logout"><i class="fa fa-sign-out"></i>Hello, ${displayName}. Log out</a></li>
         </ul>
         <ul if.bind="!isAuthenticated" class="nav navbar-top-links navbar-right">
             <li><a route-href="route: login"><i class="fa fa-sign-out"></i>Log in</a></li>

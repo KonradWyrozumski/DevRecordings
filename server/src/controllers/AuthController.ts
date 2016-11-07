@@ -8,6 +8,16 @@ var jwt = require('jwt-simple');
 var request = require('request');
 
 class AuthController {
+    me(req, res) {
+        var _userModelBusiness = new UserModelBusiness();
+        _userModelBusiness.findById(req.user, function (err, user) {
+            if (!user) {
+                return res.status(404).send({ message: 'User not found' });
+            }
+            res.send(user);
+        });
+    };
+
     signup(req, res) {
         var _userModelBusiness = new UserModelBusiness();
         var _authUtils = new AuthUtils();
