@@ -3,6 +3,7 @@
     "dependencies": {
       "aurelia-auth": "npm:aurelia-auth@^3.0.2",
       "aurelia-bootstrapper": "npm:aurelia-bootstrapper@^1.0.0",
+      "aurelia-event-aggregator": "npm:aurelia-event-aggregator@^1.0.0",
       "aurelia-fetch-client": "npm:aurelia-fetch-client@^1.0.1",
       "aurelia-framework": "npm:aurelia-framework@^1.0.2",
       "bcryptjs": "npm:bcryptjs@^2.3.0",
@@ -20,6 +21,7 @@
   "dependencies": {
     "aurelia-auth": "^3.0.2",
     "aurelia-bundler": "^0.4.0",
+    "aurelia-event-aggregator": "^1.0.0",
     "aurelia-fetch-client": "^1.0.1",
     "aurelia-framework": "^1.0.3",
     "aurelia-router": "^1.0.3",
@@ -47,6 +49,7 @@
     "moment": "^2.15.2",
     "mongoose": "^4.6.3",
     "morgan": "^1.7.0",
+    "open-graph-scraper": "^2.3.5",
     "request": "^2.78.0",
     "require-dir": "^0.3.0",
     "run-sequence": "^1.2.2",

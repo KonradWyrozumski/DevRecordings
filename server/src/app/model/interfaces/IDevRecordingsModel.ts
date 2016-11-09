@@ -2,6 +2,7 @@ import mongoose = require("mongoose");
 
 interface IDevRecordingsModel extends mongoose.Document {
     address: string;
+    thumbnailUrl: string;
 }
 
 export = IDevRecordingsModel;

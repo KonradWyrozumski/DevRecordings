@@ -4,19 +4,25 @@ import DevRecordingsBusiness = require("./../app/business/DevRecordingsBusiness"
 import IBaseController = require("./BaseController");
 import IDevRecordingsModel = require("./../app/model/interfaces/IDevRecordingsModel");
 
-class DevRecordingsController implements IBaseController <DevRecordingsBusiness> {
+class DevRecordingsController implements IBaseController<DevRecordingsBusiness> {
     create(req: express.Request, res: express.Response): void {
         try {
             var model: IDevRecordingsModel = <IDevRecordingsModel>req.body;
             var devRecordingsBusiness = new DevRecordingsBusiness();
-            devRecordingsBusiness.create(model, (error, result) => {
-                if(error) res.send({"error": "error"});
-                else res.send({"success": "success"});
-            });
+            var self = this;
+            devRecordingsBusiness.setThumbnailUrl(model)
+                .then(function(response) { // returns a promise
+                    model.thumbnailUrl = response.data.ogImage.url;
+                }).then(function() {
+                    devRecordingsBusiness.create(model, (error, result) => {
+                        if (error) res.send({ "error": "error" });
+                        else res.send({ model });
+                    });
+                });
         }
-        catch (e)  {
+        catch (e) {
             console.log(e);
-            res.send({"error": "error in your request"});
+            res.send({ "error": "error in your request" });
         }
     }
 
@@ -26,30 +32,30 @@ class DevRecordingsController implements IBaseController <DevRecordingsBusiness>
             var _id: string = req.params._id;
             var devRecordingsBusiness = new DevRecordingsBusiness();
             devRecordingsBusiness.update(_id, model, (error, result) => {
-                if(error) res.send({"error": "error"});
-                else res.send({"success": "success"});
+                if (error) res.send({ "error": "error" });
+                else res.send({ "success": "success" });
             });
         }
-        catch (e)  {
+        catch (e) {
             console.log(e);
-            res.send({"error": "error in your request"});
+            res.send({ "error": "error in your request" });
 
         }
     }
-    
+
     delete(req: express.Request, res: express.Response): void {
         try {
 
             var _id: string = req.params._id;
             var devRecordingsBusiness = new DevRecordingsBusiness();
             devRecordingsBusiness.delete(_id, (error, result) => {
-                if(error) res.send({"error": "error"});
-                else res.send({"success": "success"});
+                if (error) res.send({ "error": "error" });
+                else res.send({ "success": "success" });
             });
         }
-        catch (e)  {
+        catch (e) {
             console.log(e);
-            res.send({"error": "error in your request"});
+            res.send({ "error": "error in your request" });
 
         }
     }
@@ -59,30 +65,30 @@ class DevRecordingsController implements IBaseController <DevRecordingsBusiness>
 
             var devRecordingsBusiness = new DevRecordingsBusiness();
             devRecordingsBusiness.retrieve((error, result) => {
-                if(error) res.send({"error": "error"});
+                if (error) res.send({ "error": "error" });
                 else res.send(result);
             });
         }
-        catch (e)  {
+        catch (e) {
             console.log(e);
-            res.send({"error": "error in your request"});
+            res.send({ "error": "error in your request" });
 
         }
     }
-    
+
     findById(req: express.Request, res: express.Response): void {
         try {
 
             var _id: string = req.params._id;
             var devRecordingsBusiness = new DevRecordingsBusiness();
             devRecordingsBusiness.findById(_id, (error, result) => {
-                if(error) res.send({"error": "error"});
+                if (error) res.send({ "error": "error" });
                 else res.send(result);
             });
         }
-        catch (e)  {
+        catch (e) {
             console.log(e);
-            res.send({"error": "error in your request"});
+            res.send({ "error": "error in your request" });
 
         }
     }

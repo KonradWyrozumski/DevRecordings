@@ -33,11 +33,15 @@ export class MyList {
             .then(response => {
                 if (response.ok) {
                     this.notificationState.notify('success', 'Added');
-                    this.updateRecordings();
                 }
                 else {
                     this.notificationState.notify('error', 'Something went wrong');
                 }
+
+                return response.json()
+            })
+            .then(data => {
+                this.updateRecordings(data.model.address, data.model.thumbnailUrl);
             });
     }
 
@@ -49,8 +53,8 @@ export class MyList {
             });
     }
 
-    updateRecordings() {
-        this.recordings.push({ address: this.address });
+    updateRecordings(address, thumbnailUrl) {
+        this.recordings.push({ address: address, thumbnailUrl:thumbnailUrl });
         this.address = '';
     }
 }

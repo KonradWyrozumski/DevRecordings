@@ -7,22 +7,22 @@ import DevRecordingsModel = require("./../model/DevRecordingsModel");
 class DevRecordingsBusiness implements IDevRecordingsBusiness {
     private _recordingsRepository: RecordingsRepository;
 
-    constructor () {
+    constructor() {
         this._recordingsRepository = new RecordingsRepository();
     }
 
-    create (item: IDevRecordingsModel, callback: (error: any, result: any) => void) {
+    create(item: IDevRecordingsModel, callback: (error: any, result: any) => void) {
         this._recordingsRepository.create(item, callback);
     }
 
-    retrieve (callback: (error: any, result: any) => void) {
+    retrieve(callback: (error: any, result: any) => void) {
         this._recordingsRepository.retrieve(callback);
     }
 
-    update (_id: string, item: IDevRecordingsModel, callback: (error: any, result: any) => void) {
+    update(_id: string, item: IDevRecordingsModel, callback: (error: any, result: any) => void) {
 
         this._recordingsRepository.findById(_id, (err, res) => {
-            if(err) callback(err, res);
+            if (err) callback(err, res);
 
             else
                 this._recordingsRepository.update(res._id, item, callback);
@@ -30,12 +30,19 @@ class DevRecordingsBusiness implements IDevRecordingsBusiness {
         });
     }
 
-    delete (_id: string, callback:(error: any, result: any) => void) {
-        this._recordingsRepository.delete(_id , callback);
+    delete(_id: string, callback: (error: any, result: any) => void) {
+        this._recordingsRepository.delete(_id, callback);
     }
 
-    findById (_id: string, callback: (error: any, result: IDevRecordingsModel) => void) {
+    findById(_id: string, callback: (error: any, result: IDevRecordingsModel) => void) {
         this._recordingsRepository.findById(_id, callback);
+    }
+
+    setThumbnailUrl(model: IDevRecordingsModel) {
+        var ogs = require('open-graph-scraper');
+        var options = { url: model.address };
+
+        return ogs(options);
     }
 
 }

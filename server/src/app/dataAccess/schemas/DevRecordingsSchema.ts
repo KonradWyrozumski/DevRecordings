@@ -6,9 +6,13 @@ var mongooseConnection = DataAccess.mongooseConnection;
 
 class DevRecordingsSchema {
 
-    static get schema () {
-        var schema =  mongoose.Schema({
-            address : {
+    static get schema() {
+        var schema = mongoose.Schema({
+            address: {
+                type: String,
+                required: true
+            },
+            thumbnailUrl: {
                 type: String,
                 required: true
             }
@@ -18,4 +22,4 @@ class DevRecordingsSchema {
     }
 }
 var schema = mongooseConnection.model<IDevRecordingsModel>("Recordings", DevRecordingsSchema.schema);
-export = schema;""
+export = schema; ""

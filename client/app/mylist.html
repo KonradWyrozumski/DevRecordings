@@ -9,7 +9,7 @@
 	</form>
 	<div repeat.for="recording of recordings" class="ibox float-e-margins">
 		<div class="ibox-content">
-			<a href.bind="recording.address">${recording.address}</a>
+			<a href.bind="recording.address"><img src.bind="recording.thumbnailUrl"></img></a>
 		</div>
 	</div>
 </template>
