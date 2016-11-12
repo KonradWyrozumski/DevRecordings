@@ -41,7 +41,7 @@ export class MyList {
                 return response.json()
             })
             .then(data => {
-                this.updateRecordings(data.model.address, data.model.thumbnailUrl);
+                this.updateRecordings(data.model);
             });
     }
 
@@ -53,8 +53,8 @@ export class MyList {
             });
     }
 
-    updateRecordings(address, thumbnailUrl) {
-        this.recordings.push({ address: address, thumbnailUrl:thumbnailUrl });
+    updateRecordings(model) {
+        this.recordings.push(model);
         this.address = '';
     }
 }

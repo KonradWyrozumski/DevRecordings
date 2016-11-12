@@ -8,8 +8,12 @@
 		</div>
 	</form>
 	<div repeat.for="recording of recordings" class="ibox float-e-margins">
+		<div class="ibox-title">
+			<h5>${recording.title}</h5>
+		</div>
 		<div class="ibox-content">
-			<a href.bind="recording.address"><img src.bind="recording.thumbnailUrl"></img></a>
+			<a href.bind="recording.address"><img src.bind="recording.thumbnailUrl"></img>
+			</a>
 		</div>
 	</div>
 </template>

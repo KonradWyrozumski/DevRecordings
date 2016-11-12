@@ -10,10 +10,9 @@ class AuthRoutes {
         this._authController = new AuthController();
     }
     get routes() {
-        var authUtils = new AuthUtils();
+        var authUtils = new AuthUtils();   
 
         var controller = this._authController;
-
         router.post("/login", controller.login);
         router.post("/signup", controller.signup);
         router.post("/google", controller.authenticate);

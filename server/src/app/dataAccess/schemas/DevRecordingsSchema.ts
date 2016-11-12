@@ -15,6 +15,14 @@ class DevRecordingsSchema {
             thumbnailUrl: {
                 type: String,
                 required: true
+            },
+            title: {
+                type: String,
+                required: true
+            },
+            createdBy: {
+                type: String,
+                required: true
             }
         });
 

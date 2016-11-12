@@ -1,4 +1,3 @@
-
 import express = require("express");
 import DevRecordingsBusiness = require("./../app/business/DevRecordingsBusiness");
 import IBaseController = require("./BaseController");
@@ -9,10 +8,11 @@ class DevRecordingsController implements IBaseController<DevRecordingsBusiness> 
         try {
             var model: IDevRecordingsModel = <IDevRecordingsModel>req.body;
             var devRecordingsBusiness = new DevRecordingsBusiness();
-            var self = this;
-            devRecordingsBusiness.setThumbnailUrl(model)
-                .then(function(response) { // returns a promise
-                    model.thumbnailUrl = response.data.ogImage.url;
+            devRecordingsBusiness.getOgData(model)
+                .then(function(response) {
+                    devRecordingsBusiness.updateOgData(model, response);
+                    devRecordingsBusiness.updateUserId(model, req.user);
+                    devRecordingsBusiness.updateAddressUrl(model);
                 }).then(function() {
                     devRecordingsBusiness.create(model, (error, result) => {
                         if (error) res.send({ "error": "error" });
