@@ -3,6 +3,7 @@ import { NotificationState } from './notification-state';
 import { PostService } from './services/PostService';
 import { FetchService } from './services/FetchService';
 import { AuthService } from 'aurelia-auth';
+import * as $ from 'jquery';
 
 @inject(NotificationState, PostService, FetchService, AuthService)
 export class MyList {
@@ -56,5 +57,18 @@ export class MyList {
     updateRecordings(model) {
         this.recordings.push(model);
         this.address = '';
+    }
+
+    collapseBox() {
+        var ibox = $(event.srcElement).closest('div.ibox');
+        var iboxHeader = ibox.find('div.ibox-header');
+        var iboxWidth = ibox.width();
+        var button = $(event.srcElement).find('i');
+        var content = ibox.find('div.ibox-content');
+        content.slideToggle(200, function() {
+            ibox.width(iboxWidth);
+        });
+        button.toggleClass('fa-chevron-up').toggleClass('fa-chevron-down');
+        ibox.toggleClass('').toggleClass('border-bottom');
     }
 }
