@@ -61,6 +61,7 @@ class DevRecordingsBusiness implements IDevRecordingsBusiness {
         var uriAddress = new URI(model.address);
         if (uriAddress.scheme() === '') {
             model.address = 'http://' + model.address;
+            uriAddress = new URI(model.address);
         }
 
         model.hostname = uriAddress.hostname();
