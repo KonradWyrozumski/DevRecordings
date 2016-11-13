@@ -20,6 +20,10 @@ class DevRecordingsSchema {
                 type: String,
                 required: true
             },
+            hostname: {
+                type: String,
+                required: true
+            },
             createdById: {
                 type: mongoSchema.Types.ObjectId, ref: 'UserModel'
             }

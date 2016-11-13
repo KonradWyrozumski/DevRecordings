@@ -58,9 +58,12 @@ class DevRecordingsBusiness implements IDevRecordingsBusiness {
 
     updateAddressUrl(model: IDevRecordingsModel) {
         var URI = require('urijs');
-        if (new URI(model.address).scheme() === '') {
+        var uriAddress = new URI(model.address);
+        if (uriAddress.scheme() === '') {
             model.address = 'http://' + model.address;
         }
+
+        model.hostname = uriAddress.hostname();
     }
 
 }
