@@ -4,7 +4,7 @@ interface IDevRecordingsModel extends mongoose.Document {
     address: string;
     thumbnailUrl: string;
     title: string;
-    createdBy: string;
+    createdById: string;
 }
 
 export = IDevRecordingsModel;

@@ -53,7 +53,7 @@ class DevRecordingsBusiness implements IDevRecordingsBusiness {
     }
 
     updateUserId(model: IDevRecordingsModel, userId: string) {
-        model.createdBy = userId;
+        model.createdById = userId;
     }
 
     updateAddressUrl(model: IDevRecordingsModel) {

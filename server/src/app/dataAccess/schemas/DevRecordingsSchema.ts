@@ -3,7 +3,7 @@ import IDevRecordingsModel = require("./../../model/interfaces/IDevRecordingsMod
 
 var mongoose = DataAccess.mongooseInstance;
 var mongooseConnection = DataAccess.mongooseConnection;
-
+var mongoSchema = mongoose.Schema;
 class DevRecordingsSchema {
 
     static get schema() {
@@ -20,9 +20,8 @@ class DevRecordingsSchema {
                 type: String,
                 required: true
             },
-            createdBy: {
-                type: String,
-                required: true
+            createdById: {
+                type: mongoSchema.Types.ObjectId, ref: 'UserModel'
             }
         });
 
