@@ -8,6 +8,7 @@ System.config({
   },
   bundles: {
     "client-app-build.js": [
+      "add-mylist.js",
       "app.js",
       "config/authConfig.js",
       "github:CodeSeven/toastr@2.1.3.js",
@@ -66,10 +67,11 @@ System.config({
       "npm:aurelia-task-queue@1.0.0/aurelia-task-queue.js",
       "npm:aurelia-templating@1.0.1.js",
       "npm:aurelia-templating@1.0.1/aurelia-templating.js",
-      "npm:jquery@3.1.0.js",
-      "npm:jquery@3.1.0/dist/jquery.js",
+      "npm:jquery@3.1.1.js",
+      "npm:jquery@3.1.1/dist/jquery.js",
       "services/FetchService.js",
-      "services/PostService.js"
+      "services/PostService.js",
+      "show-mylist.js"
     ],
     "aurelia.js": [
       "github:twbs/bootstrap@3.3.7.js",
@@ -154,8 +156,8 @@ System.config({
       "npm:aurelia-templating-router@1.0.0/router-view.js",
       "npm:aurelia-templating@1.0.1.js",
       "npm:aurelia-templating@1.0.1/aurelia-templating.js",
-      "npm:jquery@3.1.0.js",
-      "npm:jquery@3.1.0/dist/jquery.js"
+      "npm:jquery@3.1.1.js",
+      "npm:jquery@3.1.1/dist/jquery.js"
     ],
     "dist/aurelia.js": [
       "github:twbs/bootstrap@3.3.7.js",
@@ -494,7 +496,7 @@ System.config({
     "bcryptjs": "npm:bcryptjs@2.3.0",
     "bootstrap": "github:twbs/bootstrap@3.3.7",
     "font-awesome": "npm:font-awesome@4.7.0",
-    "jquery": "npm:jquery@3.1.0",
+    "jquery": "npm:jquery@3.1.1",
     "jwt-simple": "npm:jwt-simple@0.5.0",
     "lodash": "npm:lodash@4.16.5",
     "moment": "npm:moment@2.15.2",
@@ -538,7 +540,7 @@ System.config({
       "vm-browserify": "npm:vm-browserify@0.0.4"
     },
     "github:twbs/bootstrap@3.3.7": {
-      "jquery": "npm:jquery@3.1.0"
+      "jquery": "npm:jquery@3.1.1"
     },
     "npm:asn1.js@4.8.1": {
       "bn.js": "npm:bn.js@4.11.6",
