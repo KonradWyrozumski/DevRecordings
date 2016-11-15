@@ -15,7 +15,6 @@ class DevRecordingsRoutes {
         var controller = this._devRecordingsController;
 
         router.get("/", controller.retrieve);
-        router.get("/:_id", controller.findById);
 
         router.use(authUtils.ensureAuthenticated);
         router.post("/", controller.create);

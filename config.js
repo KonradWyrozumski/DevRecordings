@@ -8,6 +8,7 @@ System.config({
   },
   bundles: {
     "client-app-build.js": [
+      "Recordings.js",
       "add-mylist.js",
       "app.js",
       "config/authConfig.js",
@@ -69,9 +70,10 @@ System.config({
       "npm:aurelia-templating@1.0.1/aurelia-templating.js",
       "npm:jquery@3.1.1.js",
       "npm:jquery@3.1.1/dist/jquery.js",
-      "services/FetchService.js",
-      "services/PostService.js",
-      "show-mylist.js"
+      "services/ApiClient.js",
+      "services/RecordingsApi.js",
+      "show-all-recordings.js",
+      "show-my-recordings.js"
     ],
     "aurelia.js": [
       "github:twbs/bootstrap@3.3.7.js",
@@ -493,6 +495,7 @@ System.config({
     "aurelia-event-aggregator": "npm:aurelia-event-aggregator@1.0.0",
     "aurelia-fetch-client": "npm:aurelia-fetch-client@1.0.1",
     "aurelia-framework": "npm:aurelia-framework@1.0.2",
+    "aurelia-path": "npm:aurelia-path@1.1.1",
     "bcryptjs": "npm:bcryptjs@2.3.0",
     "bootstrap": "github:twbs/bootstrap@3.3.7",
     "font-awesome": "npm:font-awesome@4.7.0",

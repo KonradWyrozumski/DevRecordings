@@ -1,21 +1,21 @@
 import { inject } from 'aurelia-framework';
 import { AuthService } from 'aurelia-auth';
 import { NotificationState } from './notification-state';
-import { PostService } from './services/PostService';
+import { RecordingsApi } from './services/RecordingsApi';
 import { EventAggregator } from 'aurelia-event-aggregator';
 
-@inject(NotificationState, PostService, AuthService, EventAggregator)
+@inject(NotificationState, RecordingsApi, AuthService, EventAggregator)
 export class AddMyList {
-    private postService: PostService;
+    private recordingsApi: RecordingsApi;
     private authService: AuthService;
     private notificationState: NotificationState;
     private eventAggregator: EventAggregator;
     private address: string;
 
-    constructor(notificationState: NotificationState, postService: PostService, authService: AuthService, eventAggregator: EventAggregator) {
+    constructor(notificationState: NotificationState, recordingsApi: RecordingsApi, authService: AuthService, eventAggregator: EventAggregator) {
         this.notificationState = notificationState;
         this.authService = authService;
-        this.postService = postService;
+        this.recordingsApi = recordingsApi;
         this.eventAggregator = eventAggregator;
     }
 
@@ -29,20 +29,18 @@ export class AddMyList {
 
             return;
         }
-
-        this.postService.postNewAddress(this.address)
-            .then(response => {
+        this.recordingsApi.execute('', { address: this.address },
+            response => {
                 if (response.ok) {
                     this.notificationState.notify('success', 'Added');
                 }
                 else {
                     this.notificationState.notify('error', 'Something went wrong');
                 }
-                return response.json()
-            })
-            .then(data => {
+            },
+            result => {
                 this.address = '';
-                this.eventAggregator.publish('myListItemAdded', data.model)
+                this.eventAggregator.publish('myListItemAdded', result.data)
             });
     }
 }

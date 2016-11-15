@@ -24,7 +24,7 @@ export class App {
       { route: ['login'], name: 'login', moduleId: 'login', nav: false },
       { route: ['logout'], name: 'logout', moduleId: 'logout', nav: false },
       { route: ['signup'], name: 'signup', moduleId: 'signup', nav: false },
-      { route: ['mylist'], name: 'mylist', moduleId: 'mylist', nav: true, title: 'My List' }
+      { route: ['mylist'], name: 'mylist', moduleId: 'mylist', nav: true, title: 'My Recordings' }
     ]);
 
     this.router = router;

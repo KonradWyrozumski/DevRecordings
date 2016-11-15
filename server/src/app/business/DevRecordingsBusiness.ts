@@ -37,6 +37,10 @@ class DevRecordingsBusiness implements IDevRecordingsBusiness {
         this._recordingsRepository.findById(_id, callback);
     }
 
+    query(query: Object, callback: (error: any, result: IDevRecordingsModel) => void) {
+        this._recordingsRepository.find(query, callback);
+    }
+
     getOgData(model: IDevRecordingsModel) {
         var ogs = require('open-graph-scraper');
         var options = { url: model.address };

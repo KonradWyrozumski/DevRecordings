@@ -10,7 +10,8 @@ module.exports = {
         "notification-state.js",
         "nav-bar.js",
         "add-mylist.js",
-        "show-mylist.js"
+        "show-all-recordings.js",
+        "show-my-recordings.js"
       ],
       "options": {
         "inject": true,
