@@ -208,6 +208,9 @@ body.mini-navbar .page-content {
   .page-content {
     margin: 0 0 0 0;  
   }
+  .mini-navbar .navbar-static-side {
+    display: block;
+  }
 }
 
 /* BACKGROUNDS */
