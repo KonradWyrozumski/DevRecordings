@@ -11,5 +11,6 @@ export function configure(aurelia: Aurelia) {
          baseConfig.configure(AuthConfig.config);
     });
 
+
   aurelia.start().then(() => aurelia.setRoot());
 }

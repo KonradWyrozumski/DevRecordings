@@ -96,19 +96,6 @@ gulp.task('watch', ['start'], function () {
     });
 });
 
-gulp.task('set-dev-node-env', function () {
-    console.log('setting env to development');
-    return process.env.NODE_ENV = 'development';
-});
-
-/**
- * Build the project.
- * 1. Clean the build directory
- * 2. Build Express server
- * 3. Build the Angular app
- * 4. Copy the resources
- * 5. Copy the dependencies.
- */
 gulp.task("build", function (callback) {
     runSequence('tslint', 'clean', 'build:server', 'build:client', 'clientResources',
         'bundle',
@@ -117,7 +104,6 @@ gulp.task("build", function (callback) {
 
 gulp.task('start', ['build'], function () {
     nodemon({
-        // verbose: true,
         ignore: 'dist/*',
         script: 'dist/server/server.js',
         env: {

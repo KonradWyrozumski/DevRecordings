@@ -2,13 +2,14 @@
   <require from="bootstrap/css/bootstrap.css"></require>
   <require from="font-awesome/css/font-awesome.min.css"></require>
   <link href="dist/client/app/styles/style.css" rel="stylesheet">
+  <div id="wrapper">
+    <require from="nav-bar"></require>
+    <nav-bar router.bind="router" auth-service.bind="authService"></nav-bar>
 
-  <require from="nav-bar"></require>
-  <nav-bar router.bind="router" auth-service.bind="authService"></nav-bar>
-
-  <div id="page-wrapper" class="gray-bg">
-    <div class="page-host">
-      <router-view></router-view>
+    <div id="page-wrapper" class="gray-bg page-content">
+      <div class="page-host">
+        <router-view></router-view>
+      </div>
     </div>
   </div>
 </template>

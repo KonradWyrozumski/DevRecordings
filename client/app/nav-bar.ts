@@ -2,6 +2,7 @@ import { bindable } from "aurelia-framework";
 import { inject } from "aurelia-framework";
 import { AuthService } from "aurelia-auth";
 import { BindingEngine } from "aurelia-framework";
+import * as $ from "jquery";
 
 @inject(AuthService, BindingEngine)
 
@@ -18,7 +19,6 @@ export class NavBar {
         this.bindingEngine = bindingEngine;
         this.subscription = bindingEngine.propertyObserver(this, "_isAuthenticated")
             .subscribe((newValue, oldValue) => {
-                console.log("event");
                 if (this.isAuthenticated) {
                     this.auth.getMe().then(data => {
                         return this.displayName = data.displayName;
@@ -32,4 +32,8 @@ export class NavBar {
         this._isAuthenticated = this.auth.isAuthenticated();
         return this._isAuthenticated;
     };
+
+    public minimalizeNavbar() {
+        $("body").toggleClass("mini-navbar");
+    }
 }

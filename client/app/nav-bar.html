@@ -1,30 +1,48 @@
 <template bindable="router, authService">
-    <div class="row">
-        <ul if.bind="isAuthenticated" class="nav navbar-top-links navbar-right">
-            <li><a route-href="route: logout"><i class="fa fa-sign-out"></i>Hello, ${displayName}. Log out</a></li>
-        </ul>
-        <ul if.bind="!isAuthenticated" class="nav navbar-top-links navbar-right">
-            <li><a route-href="route: login"><i class="fa fa-sign-out"></i>Log in</a></li>
-        </ul>
-
-        <nav class="navbar-default navbar-static-side" role="navigation">
-            <div class="sidebar-collapse">
-                <ul class="nav metismenu" id="side-menu">
-                    <li class="nav-header">
-                        <div class="dropdown profile-element">
-                            <a class="dropdown-toggle" href="#">
-                                <span class="clear"> 
-                <span class="block m-t-xs"> 
-                  <strong class="font-bold">${router.title}</strong></span></span>
-                            </a>
+    <nav class="navbar-default navbar-static-side" role="navigation">
+        <div class="sidebar-collapse">
+            <ul class="nav metismenu" id="side-menu">
+                <li class="nav-header">
+                    <div class="dropdown profile-element">
+                        <div class="dropdown-toggle" href="#">
+                            <span class="clear"> 
+                                <span class="block m-t-xs"> 
+                                    <strong class="font-bold">${router.title}</strong>
+                                    </span>
+                            </span>
                         </div>
-                    </li>
-                    <li repeat.for="row of router.navigation" class="${row.isActive ? 'active' : ''}">
-                        <a href.bind="row.href"><i class="fa fa-th-large"></i> <span class="nav-label">${row.title}</span></a>
-                    </li>
+                    </div>
+                    <div class="dropdown logo-element">
+                        <div class="dropdown-toggle" href="#">
+                            <span class="clear"> 
+                                <span class="block m-t-xs"> 
+                                    <strong class="font-bold">DR</strong>
+                                    </span>
+                            </span>
+                        </div>
+                    </div>
+                </li>
+                <li repeat.for="row of router.navigation" class="${row.isActive ? 'active' : ''}">
+                    <a href.bind="row.href"><i class="fa fa-th-large"></i> <span class="nav-label">${row.title}</span></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="page-content">
+        <div class="row border-bottom">
+            <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom:0">
+                <div class="navbar-header">
+                    <a class="navbar-minimalize minimalize-styl-2 btn btn-primary" click.delegate="minimalizeNavbar()">
+                        <i class="fa fa-bars"></i>
+                    </a>
+                </div>
+                <ul if.bind="isAuthenticated" class="nav navbar-top-links navbar-right">
+                    <li><a route-href="route: logout"><i class="fa fa-sign-out"></i>Hello, ${displayName}. Log out</a></li>
                 </ul>
-            </div>
-        </nav>
+                <ul if.bind="!isAuthenticated" class="nav navbar-top-links navbar-right">
+                    <li><a route-href="route: login"><i class="fa fa-sign-out"></i>Log in</a></li>
+                </ul>
+            </nav>
+        </div>
     </div>
-
 </template>

@@ -23,6 +23,12 @@ body {
   padding: 33px 25px;
   background: url("patterns/header-profile.png") no-repeat;
 }
+body {
+    -webkit-transition: all 2s;
+  -moz-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  transition: all 0.4s;
+}
 .nav-header a {
   color: #DFE4ED;
 }
@@ -43,6 +49,20 @@ body {
   color: white;
 }
 
+body.mini-navbar .navbar-static-side {
+  width: 70px;
+}
+
+body.mini-navbar .nav-label,
+body.mini-navbar .profile-element {
+  display: none;
+}
+body.mini-navbar .logo-element {
+  display: block !important;
+}
+body.mini-navbar .page-content {
+  margin: 0 0 0 70px;
+}
 .nav > li > a {
   color: #a7b1c2;
   font-weight: 600;
@@ -60,6 +80,13 @@ body {
 .nav.navbar-top-links > li > a:hover,
 .nav.navbar-top-links > li > a:focus {
   background-color: transparent;
+}
+.logo-element {
+  text-align: center;
+  font-size: 13px;
+  font-weight: bold;
+  color: #676a6c;
+  display: none !important;
 }
 
 @media (min-width: 768px) {
@@ -83,6 +110,7 @@ body {
 
 .navbar-static-top {
   background: #f3f3f4;
+  min-height: 60px;
 }
 
 .form-add-mylist {
@@ -154,24 +182,40 @@ body {
   padding: 20px 20px 20px 20px;
 }
 
-#page-wrapper {
-  padding: 0 15px;
+/* WRAPPERS */
+#wrapper {
+  width: 100%;
+  overflow-x: hidden;
+}
+.wrapper {
+  padding: 0 20px;
+}
+
+#page-wrapper {  
   min-height: 568px;
   position: relative !important;
+}
+
+.page-content {
+  padding: 0 15px;
 }
 
 @media (min-width: 768px) {
   #page-wrapper {
     position: inherit;
-    margin: 0 0 0 220px;
     min-height: 1200px;
+  }
+  .page-content {
+    margin: 0 0 0 220px;  
   }
 }
 @media (max-width: 768px) {
   #page-wrapper {
     position: inherit;
-    margin: 0 0 0 0;
     min-height: 1000px;
+  }
+  .page-content {
+    margin: 0 0 0 0;  
   }
 }
 
@@ -259,4 +303,36 @@ body {
 
 .ibox-tools a.btn-primary {
   color: #fff;
+}
+
+/* buttons */
+.btn-primary {
+  background-color: #1ab394;
+  border-color: #1ab394;
+  color: #FFFFFF;
+}
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary.active,
+.open .dropdown-toggle.btn-primary,
+.btn-primary:active:focus,
+.btn-primary:active:hover,
+.btn-primary.active:hover,
+.btn-primary.active:focus {
+  background-color: #18a689;
+  border-color: #18a689;
+  color: #FFFFFF;
+}
+.btn-primary:active,
+.btn-primary.active,
+.open .dropdown-toggle.btn-primary {
+  background-image: none;
+}
+
+.minimalize-styl-2 {
+  padding: 4px 12px;
+  margin: 14px 5px 5px 20px;
+  font-size: 14px;
+  float: left;
 }

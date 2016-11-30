@@ -17,7 +17,6 @@ export abstract class ApiClient {
                     "X-Requested-With": "Fetch"
                 };
         });
-
     }
 
     configure(baseUrl: string) {
@@ -37,8 +36,7 @@ export abstract class ApiClient {
     }
 
     protected handleError(err) {
-
-        console.debug("Server err. ");
+        console.debug("Server err.");
         console.debug(err);
     }
 
