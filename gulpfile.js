@@ -12,6 +12,7 @@ var del = require("del");
 var bundler = require('aurelia-bundler');
 var bundles = require('./build/bundles.js');
 var nodemon = require('gulp-nodemon');
+var tslint = require('gulp-tslint');
 
 var typescriptCompiler = typescriptCompiler || null;
 
@@ -109,7 +110,7 @@ gulp.task('set-dev-node-env', function () {
  * 5. Copy the dependencies.
  */
 gulp.task("build", function (callback) {
-    runSequence('clean', 'build:server', 'build:client', 'clientResources',
+    runSequence('tslint', 'clean', 'build:server', 'build:client', 'clientResources',
         'bundle',
         callback);
 });
@@ -132,3 +133,11 @@ gulp.task('start', ['build'], function () {
             }, 500);
         });
 });
+
+gulp.task("tslint", () =>
+    gulp.src(["server/**/*.ts", "client/**/*.ts", "!**/*d.ts"])
+        .pipe(tslint({
+            formatter: "prose"
+        }))
+        .pipe(tslint.report({}))
+);

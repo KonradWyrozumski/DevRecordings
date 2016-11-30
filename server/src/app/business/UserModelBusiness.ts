@@ -18,14 +18,14 @@ class UserModelBusiness implements IUserModelBusiness {
         this._userModelRepository.retrieve(callback);
     }
 
-    retrieveOne(condition: Object, callback: (error:any, result:any) => void) {
+    retrieveOne (condition: Object, callback: (error: any, result: any) => void) {
         this._userModelRepository.retrieveOne(condition, callback);
     }
 
     update (_id: string, item: IUserModel, callback: (error: any, result: any) => void) {
 
         this._userModelRepository.findById(_id, (err, res) => {
-            if(err) callback(err, res);
+            if (err) callback(err, res);
 
             else
                 this._userModelRepository.update(res._id, item, callback);
@@ -33,7 +33,7 @@ class UserModelBusiness implements IUserModelBusiness {
         });
     }
 
-    delete (_id: string, callback:(error: any, result: any) => void) {
+    delete (_id: string, callback: (error: any, result: any) => void) {
         this._userModelRepository.delete(_id , callback);
     }
 

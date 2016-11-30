@@ -1,4 +1,4 @@
-import IDevRecordingsModel = require('./interfaces/IDevRecordingsModel');
+import IDevRecordingsModel = require("./interfaces/IDevRecordingsModel");
 
 class DevRecordingsModel {
 

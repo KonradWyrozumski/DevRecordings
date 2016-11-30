@@ -5,7 +5,7 @@ import * as express from "express";
 import * as path from "path";
 import * as logger from "morgan";
 import BaseRoutes = require("./config/routes/index");
-import AuthRoutes = require('./config/routes/AuthRoutes');
+import AuthRoutes = require("./config/routes/AuthRoutes");
 
 class Server {
 
@@ -24,14 +24,13 @@ class Server {
   }
 
   private config() {
-    this.app.set('views', path.join(__dirname, '.'));
+    this.app.set("views", path.join(__dirname, "."));
     this.app.set("view engine", "ejs");
-    this.app.engine('html', require('ejs').renderFile);
+    this.app.engine("html", require("ejs").renderFile);
 
     this.app.use(bodyParser.json());
 
     this.app.use(logger("dev"));
-
     this.app.use(bodyParser.json());
     this.app.use(this.allowCrossDomain);
 
@@ -41,29 +40,29 @@ class Server {
     this.app.use(express.static(path.join(__dirname, "../../node_modules")));
     this.app.use(express.static(path.join(__dirname, "../../jspm_packages")));
     this.app.use(express.static(path.join(__dirname, "../../")));
-    
-    this.app.set('port', process.env.PORT || 9000);
+
+    this.app.set("port", process.env.PORT || 9000);
   }
 
-  
+
   private routes() {
-    this.app.use('/api', new BaseRoutes().routes);
+    this.app.use("/api", new BaseRoutes().routes);
     this.app.use("/auth", new AuthRoutes().routes);
   }
 
   private allowCrossDomain = function(req, res, next) {
-     res.header('Access-Control-Allow-Origin', '*');
-     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
-     res.header('Access-Control-Allow-Headers', 'Content-Type');
+     res.header("Access-Control-Allow-Origin", "*");
+     res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE");
+     res.header("Access-Control-Allow-Headers", "Content-Type");
 
      next();
  };
 }
 
-var server = Server.bootstrap();
+let server = Server.bootstrap();
 
-server.app.listen(server.app.get('port'), function() {
-     console.log('Express server listening on port ' + server.app.get('port'));
+server.app.listen(server.app.get("port"), function() {
+     console.log("Express server listening on port " + server.app.get("port"));
  });
 
 export = server.app;

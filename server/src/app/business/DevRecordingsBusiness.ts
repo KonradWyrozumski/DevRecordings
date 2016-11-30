@@ -42,15 +42,15 @@ class DevRecordingsBusiness implements IDevRecordingsBusiness {
     }
 
     getOgData(model: IDevRecordingsModel) {
-        var ogs = require('open-graph-scraper');
-        var options = { url: model.address };
+        let ogs = require("open-graph-scraper");
+        let options = { url: model.address };
 
         return ogs(options);
     }
 
     updateOgData(model: IDevRecordingsModel, response) {
-        var ogDataUrl = (((response || {}).data || {}).ogImage || {}).url;
-        var ogTitle = ((response || {}).data || {}).ogTitle;
+        let ogDataUrl = (((response || {}).data || {}).ogImage || {}).url;
+        let ogTitle = ((response || {}).data || {}).ogTitle;
 
         model.thumbnailUrl = ogDataUrl;
         model.title = ogTitle;
@@ -61,10 +61,10 @@ class DevRecordingsBusiness implements IDevRecordingsBusiness {
     }
 
     updateAddressUrl(model: IDevRecordingsModel) {
-        var URI = require('urijs');
-        var uriAddress = new URI(model.address);
-        if (uriAddress.scheme() === '') {
-            model.address = 'http://' + model.address;
+        let URI = require("urijs");
+        let uriAddress = new URI(model.address);
+        if (uriAddress.scheme() === "") {
+            model.address = "http://" + model.address;
             uriAddress = new URI(model.address);
         }
 

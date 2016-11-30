@@ -63,6 +63,8 @@
     "start": "node dist/server/server.js"
   },
   "devDependencies": {
-    "gulp-rename": "^1.2.2"
+    "gulp-rename": "^1.2.2",
+    "gulp-tslint": "^7.0.1",
+    "tslint": "^4.0.2"
   }
 }

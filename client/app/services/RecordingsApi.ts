@@ -1,6 +1,6 @@
-import { HttpClient } from 'aurelia-fetch-client';
-import { inject } from 'aurelia-framework';
-import { ApiClient } from './ApiClient';
+import { HttpClient } from "aurelia-fetch-client";
+import { inject } from "aurelia-framework";
+import { ApiClient } from "./ApiClient";
 
 @inject(HttpClient)
 export class RecordingsApi extends ApiClient {

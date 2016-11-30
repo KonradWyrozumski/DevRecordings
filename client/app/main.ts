@@ -1,23 +1,15 @@
-import 'jquery';
-import 'bootstrap';
-import {Aurelia} from 'aurelia-framework';
+import "jquery";
+import "bootstrap";
+import {Aurelia} from "aurelia-framework";
 import AuthConfig = require("./config/authConfig");
 
 export function configure(aurelia: Aurelia) {
-  console.log(AuthConfig.config);  
   aurelia.use
     .standardConfiguration()
     .developmentLogging()
-    .plugin('aurelia-auth', (baseConfig)=>{
+    .plugin("aurelia-auth", (baseConfig) => {
          baseConfig.configure(AuthConfig.config);
     });
-
-
-  //Uncomment the line below to enable animation.
-  //aurelia.use.plugin('aurelia-animator-css');
-
-  //Anyone wanting to use HTMLImports to load views, will need to install the following plugin.
-  //aurelia.use.plugin('aurelia-html-import-template-loader')
 
   aurelia.start().then(() => aurelia.setRoot());
 }

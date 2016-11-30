@@ -1,7 +1,7 @@
 import * as express from "express";
-import DevRecordings = require('../routes/DevRecordings');
+import DevRecordings = require("../routes/DevRecordings");
 
-var app = express();
+let app = express();
 
 class Routes {
 
@@ -11,4 +11,6 @@ class Routes {
         return app;
     }
 }
+
+Object.seal(Routes);
 export = Routes;

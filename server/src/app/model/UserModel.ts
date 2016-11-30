@@ -1,4 +1,4 @@
-import IUserModel = require('./interfaces/IUserModel');
+import IUserModel = require("./interfaces/IUserModel");
 
 class UserModel {
 

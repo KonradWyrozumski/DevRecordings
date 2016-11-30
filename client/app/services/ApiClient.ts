@@ -1,5 +1,5 @@
 import { HttpClient, HttpClientConfiguration, json } from "aurelia-fetch-client";
-import * as $ from 'jquery';
+import * as $ from "jquery";
 
 export interface ICommandResult {
     errors: any;
@@ -13,21 +13,21 @@ export abstract class ApiClient {
         this.http.configure((cf: HttpClientConfiguration) => {
             cf.useStandardConfiguration()
                 .defaults.headers = {
-                    'Accept': 'application/json',
-                    'X-Requested-With': 'Fetch'
+                    "Accept": "application/json",
+                    "X-Requested-With": "Fetch"
                 };
         });
 
     }
 
     configure(baseUrl: string) {
-        this.baseUrl = baseUrl + (baseUrl.endsWith("/") ? "" : "/");;
+        this.baseUrl = baseUrl + (baseUrl.endsWith("/") ? "" : "/");
     }
 
     query(query: string, func: (result: any) => void, params?: any) {
         query = this.baseUrl + query;
         if (params) {
-            var args = $.param(params);
+            let args = $.param(params);
             query = query + "?" + args;
         }
 
@@ -49,7 +49,7 @@ export abstract class ApiClient {
             method: "POST",
             body: json(data)
         })
-            .then(resp => { onfulfilledfunc(resp); return resp.json() }).then(d => func(d))
+            .then(resp => { onfulfilledfunc(resp); return resp.json(); }).then(d => func(d))
             .catch(er => this.handleError(er));
 
     }

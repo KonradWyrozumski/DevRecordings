@@ -17,7 +17,7 @@ class RepositoryBase<T extends mongoose.Document> implements IRead<T>, IWrite<T>
     }
 
     retrieve(callback: (error: any, result: any) => void) {
-        this._model.find({}, callback)
+        this._model.find({}, callback);
     }
 
     retrieveOne(condition: Object, callback: (error: any, result: any) => void) {
@@ -43,7 +43,7 @@ class RepositoryBase<T extends mongoose.Document> implements IRead<T>, IWrite<T>
     }
 
     private toObjectId(_id: string): mongoose.Types.ObjectId {
-        return mongoose.Types.ObjectId.createFromHexString(_id)
+        return mongoose.Types.ObjectId.createFromHexString(_id);
     }
 
 }

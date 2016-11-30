@@ -1,5 +1,5 @@
-import { AuthService } from 'aurelia-auth';
-import { inject } from 'aurelia-framework';
+import { AuthService } from "aurelia-auth";
+import { inject } from "aurelia-framework";
 @inject(AuthService)
 
 export class Login {
@@ -9,15 +9,15 @@ export class Login {
         this.auth = auth;
     };
 
-    email = '';
-    password = '';
+    email = "";
+    password = "";
+
     login() {
-        var creds = "grant_type=password&email=" + this.email + "&password=" + this.password;
+        let creds = "grant_type=password&email=" + this.email + "&password=" + this.password;
         return this.auth.login(this.email, this.password);
     };
 
     authenticate(name) {
-        return this.auth.authenticate(name, false, null)
-
+        return this.auth.authenticate(name, false, null);
     }
 }

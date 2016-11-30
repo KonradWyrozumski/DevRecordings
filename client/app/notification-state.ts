@@ -1,9 +1,9 @@
 import * as toastr from "toastr";
 
 export class NotificationState {
-    message = '';
+    message = "";
 
     notify(type, message) {
-        toastr[type](message)
+        toastr[type](message);
     }
 }

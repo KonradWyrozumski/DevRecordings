@@ -1,9 +1,9 @@
-import { inject } from 'aurelia-framework';
-import { RecordingsApi } from './services/RecordingsApi';
-import { EventAggregator } from 'aurelia-event-aggregator';
-import { Recordings } from './Recordings';
-import * as $ from 'jquery';
-import { AuthService } from 'aurelia-auth';
+import { inject } from "aurelia-framework";
+import { RecordingsApi } from "./services/RecordingsApi";
+import { EventAggregator } from "aurelia-event-aggregator";
+import { Recordings } from "./Recordings";
+import * as $ from "jquery";
+import { AuthService } from "aurelia-auth";
 
 @inject(RecordingsApi, EventAggregator, AuthService)
 export class ShowMyRecordings extends Recordings {
@@ -16,13 +16,13 @@ export class ShowMyRecordings extends Recordings {
         this.eventAggregator = eventAggregator;
         this.authService = authService;
         this.recordingsApi = recordingsApi;
-        this.eventAggregator.subscribe('myListItemAdded', (model) => { this.updateRecordings(model) });
+        this.eventAggregator.subscribe("myListItemAdded", (model) => { this.updateRecordings(model); });
         this.getRecordings();
     }
 
     getRecordings() {
         this.authService.getMe().then(data => {
-            this.recordingsApi.query('', result => { this.recordings = result }, { 'createdById': data._id })
+            this.recordingsApi.query("", result => { this.recordings = result; }, { "createdById": data._id });
         });
     }
 

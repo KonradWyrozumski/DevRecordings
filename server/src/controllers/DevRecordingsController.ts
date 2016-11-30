@@ -6,8 +6,8 @@ import IDevRecordingsModel = require("./../app/model/interfaces/IDevRecordingsMo
 class DevRecordingsController implements IBaseController<DevRecordingsBusiness> {
     create(req: express.Request, res: express.Response): void {
         try {
-            var data: IDevRecordingsModel = <IDevRecordingsModel>req.body;
-            var devRecordingsBusiness = new DevRecordingsBusiness();
+            let data: IDevRecordingsModel = <IDevRecordingsModel>req.body;
+            let devRecordingsBusiness = new DevRecordingsBusiness();
             devRecordingsBusiness.getOgData(data)
                 .then(function (response) {
                     devRecordingsBusiness.updateOgData(data, response);
@@ -28,9 +28,9 @@ class DevRecordingsController implements IBaseController<DevRecordingsBusiness> 
 
     update(req: express.Request, res: express.Response): void {
         try {
-            var model: IDevRecordingsModel = <IDevRecordingsModel>req.body;
-            var _id: string = req.params._id;
-            var devRecordingsBusiness = new DevRecordingsBusiness();
+            let model: IDevRecordingsModel = <IDevRecordingsModel>req.body;
+            let _id: string = req.params._id;
+            let devRecordingsBusiness = new DevRecordingsBusiness();
             devRecordingsBusiness.update(_id, model, (error, result) => {
                 if (error) res.send({ "error": "error" });
                 else res.send({ "success": "success" });
@@ -46,8 +46,8 @@ class DevRecordingsController implements IBaseController<DevRecordingsBusiness> 
     delete(req: express.Request, res: express.Response): void {
         try {
 
-            var _id: string = req.params._id;
-            var devRecordingsBusiness = new DevRecordingsBusiness();
+            let _id: string = req.params._id;
+            let devRecordingsBusiness = new DevRecordingsBusiness();
             devRecordingsBusiness.delete(_id, (error, result) => {
                 if (error) res.send({ "error": "error" });
                 else res.send({ "success": "success" });
@@ -62,7 +62,7 @@ class DevRecordingsController implements IBaseController<DevRecordingsBusiness> 
 
     retrieve(req: express.Request, res: express.Response): void {
         try {
-            var devRecordingsBusiness = new DevRecordingsBusiness();
+            let devRecordingsBusiness = new DevRecordingsBusiness();
             devRecordingsBusiness.query(req.query, (error, result) => {
                 if (error) res.send({ "error": "error" });
                 else res.send(result);
@@ -77,8 +77,8 @@ class DevRecordingsController implements IBaseController<DevRecordingsBusiness> 
 
     findById(req: express.Request, res: express.Response): void {
         try {
-            var _id: string = req.params._id;
-            var devRecordingsBusiness = new DevRecordingsBusiness();
+            let _id: string = req.params._id;
+            let devRecordingsBusiness = new DevRecordingsBusiness();
             devRecordingsBusiness.findById(_id, (error, result) => {
                 if (error) res.send({ "error": "error" });
                 else res.send(result);

@@ -1,13 +1,13 @@
-var bcrypt = require('bcryptjs');
-import DataAccess = require('../DataAccess');
+let bcrypt = require("bcryptjs");
+import DataAccess = require("../DataAccess");
 import IUserModel = require("./../../model/interfaces/IUserModel");
 
-var mongoose = DataAccess.mongooseInstance;
-var mongooseConnection = DataAccess.mongooseConnection;
+let mongoose = DataAccess.mongooseInstance;
+let mongooseConnection = DataAccess.mongooseConnection;
 
 class UserModelSchema {
     static get schema() {
-        var schema = mongoose.Schema({
+        let schema = mongoose.Schema({
             email: { type: String, unique: true, lowercase: true },
             password: String,
             displayName: String,
@@ -15,9 +15,9 @@ class UserModelSchema {
             google: String
 
         });
-        schema.pre('save', function (next) {
-            var user = this;
-            if (!user.isModified('password')) {
+        schema.pre("save", function (next) {
+            let user = this;
+            if (!user.isModified("password")) {
                 return next();
             }
             bcrypt.genSalt(10, function (err, salt) {
@@ -29,7 +29,7 @@ class UserModelSchema {
         });
 
         schema.methods.comparePassword = function (password, done) {
-            var user = this;
+            let user = this;
             bcrypt.compare(password, user.password, function (err, isMatch) {
                 done(err, isMatch);
             });
@@ -39,5 +39,5 @@ class UserModelSchema {
     }
 }
 
-var schema = mongooseConnection.model<IUserModel>("UserModel", UserModelSchema.schema);
-export = schema; ""
+let schema = mongooseConnection.model<IUserModel>("UserModel", UserModelSchema.schema);
+export = schema;
