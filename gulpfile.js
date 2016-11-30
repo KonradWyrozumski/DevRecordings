@@ -97,7 +97,7 @@ gulp.task('watch', ['start'], function () {
 });
 
 gulp.task("build", function (callback) {
-    runSequence('tslint', 'clean', 'build:server', 'build:client', 'clientResources',
+    runSequence('clean', 'build:server', 'build:client', 'clientResources',
         'bundle',
         callback);
 });

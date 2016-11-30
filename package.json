@@ -56,15 +56,13 @@
     "serve-favicon": "^2.3.0",
     "typescript": "^2.0.0",
     "urijs": "^1.18.2",
-    "vinyl-paths": "^2.1.0"
+    "vinyl-paths": "^2.1.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-tslint": "^7.0.1",
+    "tslint": "^4.0.2"
   },
   "scripts": {
     "test": "gulp test",
     "start": "node dist/server/server.js"
-  },
-  "devDependencies": {
-    "gulp-rename": "^1.2.2",
-    "gulp-tslint": "^7.0.1",
-    "tslint": "^4.0.2"
   }
 }
