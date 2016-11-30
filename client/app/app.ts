@@ -20,11 +20,11 @@ export class App {
     config.title = "#DEVRECORDINGS";
     config.addPipelineStep("authorize", AuthorizeStep);
     config.map([
-      { route: ["", "home"], name: "home", moduleId: "home", nav: false },
+      { route: ["", "home"], name: "home", moduleId: "home", nav: true, title: "All Recordings", settings: { styles: "fa-desktop" } },
       { route: ["login"], name: "login", moduleId: "login", nav: false },
       { route: ["logout"], name: "logout", moduleId: "logout", nav: false },
       { route: ["signup"], name: "signup", moduleId: "signup", nav: false },
-      { route: ["mylist"], name: "mylist", moduleId: "mylist", nav: true, title: "My Recordings" }
+      { route: ["mylist"], name: "mylist", moduleId: "mylist", nav: true, title: "My Recordings", settings: { styles: "fa-th-large" } }
     ]);
 
     this.router = router;

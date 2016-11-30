@@ -23,7 +23,7 @@
                     </div>
                 </li>
                 <li repeat.for="row of router.navigation" class="${row.isActive ? 'active' : ''}">
-                    <a href.bind="row.href"><i class="fa fa-th-large"></i> <span class="nav-label">${row.title}</span></a>
+                    <a href.bind="row.href"><i class="fa ${row.settings.styles}"></i> <span class="nav-label">${row.title}</span></a>
                 </li>
             </ul>
         </div>
