@@ -10,12 +10,14 @@
 }
 body {
   font-family: "open sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  background-color: #f3f3f4;
+  background-color: #2f4050;
   font-size: 13px;
   color: #676a6c;
   overflow-x: hidden;
-  overflow: hidden;
+  /*overflow: hidden;*/
+  min-height: 100%;
 }
+
 .nav.navbar-top-links .dropdown-alerts a {
   font-size: 12px;
 }
@@ -184,6 +186,7 @@ body.mini-navbar .page-content {
 
 #page-wrapper {  
   min-height: 568px;
+  background-color: #f3f3f4;
   position: relative !important;
 }
 
@@ -194,7 +197,7 @@ body.mini-navbar .page-content {
 @media (min-width: 768px) {
   #page-wrapper {
     position: inherit;
-    min-height: 1200px;
+    /*min-height: 800px;*/
   }
   .page-content {
     margin: 0 0 0 220px;  
@@ -273,6 +276,17 @@ body.mini-navbar .page-content {
   font-size: 90%;
   background: #ffffff;
   padding: 10px 15px;
+}
+
+.ibox-footer h8 {
+  display: inline-block;
+  font-size: 11px;
+  margin: 0 0 7px;
+  padding: 0;
+  text-overflow: ellipsis;
+  margin-bottom: 5px;
+  font-weight: 600;
+  float:left;
 }
 
 .ibox-content > a > img {
