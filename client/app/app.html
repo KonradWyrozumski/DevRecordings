@@ -4,8 +4,9 @@
   <link href="dist/client/app/styles/style.css" rel="stylesheet">
   <div id="wrapper">
     <require from="nav-bar"></require>
-    <nav-bar router.bind="router" auth-service.bind="authService"></nav-bar>
-
+    <div class="navbar-default">
+      <nav-bar router.bind="router" auth-service.bind="authService"></nav-bar>
+    </div>
     <div id="page-wrapper" class="gray-bg page-content">
       <div class="page-host">
         <router-view></router-view>
