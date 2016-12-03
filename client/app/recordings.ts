@@ -3,6 +3,22 @@ import * as $ from "jquery";
 export abstract class Recordings {
     recordings = [];
 
+    get groupedRecordings() {
+        let result = [];
+        let itemsPerRow = 4;
+        let group = [];
+        for (let index = 0, length = this.recordings.length; index < length; index++) {
+            if (index % itemsPerRow === 0) {
+                group = [];
+                result.push(group);
+            }
+
+            group.push(this.recordings[index]);
+        }
+
+        return result;
+    }
+
     collapseBox() {
         let ibox = $(event.srcElement).closest("div.ibox");
         let iboxHeader = ibox.find("div.ibox-header");

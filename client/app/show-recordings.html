@@ -1,28 +1,36 @@
 <template>
-    <div class="row">
-        <div repeat.for="recording of recordings">
-            <div class="col-lg-3">
-                <div class="ibox float-e-margins">
-                    <div class="ibox-title">
-                        <h5>${recording.title}</h5>
-                        <div class="ibox-tools">
-                            <a class="collapse-link" click.delegate="collapseBox()">
-                                <i class="fa fa-chevron-up"></i>
+    <template repeat.for="group of groupedRecordings">
+        <div class="row">
+            <template repeat.for="recording of group">
+                <div class="col-lg-3">
+                    <div class="ibox float-e-margins">
+                        <div class="ibox-title">
+                            <h5>${recording.title}</h5>
+                            <div class="ibox-tools">
+                                <a class="collapse-link" click.delegate="collapseBox()">
+                                    <i class="fa fa-chevron-up"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="ibox-content">
+                            <a href.bind="recording.address"><img src.bind="recording.thumbnailUrl"></img>
                             </a>
                         </div>
-                    </div>
-                    <div class="ibox-content">
-                        <a href.bind="recording.address"><img src.bind="recording.thumbnailUrl"></img>
-                        </a>
-                    </div>
-                    <div class="ibox-footer">
-                        <h8>${recording.hostname}</h8>
-                        <div class="ibox-tools">
-                            <a>
-                                <i class="fa fa-hashtag"></i>
-                            </a>
+                        <div class="ibox-footer">
+                            <h8>${recording.hostname}</h8>
+                            <div class="ibox-tools">
+                                <a data-toggle="modal" href="#modal-form">
+                                    <i class="fa fa-hashtag"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="ibox-footer">
+                            <div class="ibox-tools">
+                                #sampleTag
+                            </div>
                         </div>
                     </div>
-                </div>
+            </template>
             </div>
-</template>
+            </<template>
+    </template>
