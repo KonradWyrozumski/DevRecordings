@@ -8,12 +8,11 @@ let mongooseConnection = DataAccess.mongooseConnection;
 class UserModelSchema {
     static get schema() {
         let schema = mongoose.Schema({
-            email: { type: String, unique: true, lowercase: true },
-            password: String,
+            email: { type: String, unique: true, sparse: true, lowercase: true },
+            password: { type: String },
             displayName: String,
             picture: String,
             google: String
-
         });
         schema.pre("save", function (next) {
             let user = this;
