@@ -63,6 +63,7 @@
   },
   "scripts": {
     "test": "gulp test",
-    "start": "node dist/server/server.js"
+    "start": "node dist/server/server.js",
+    "postinstall": "gulp build"
   }
 }
