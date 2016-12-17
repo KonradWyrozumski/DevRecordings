@@ -49,6 +49,7 @@ class DevRecordingsBusiness implements IDevRecordingsBusiness {
     }
 
     updateOgData(model: IDevRecordingsModel, response) {
+
         let ogDataUrl = (((response || {}).data || {}).ogImage || {}).url;
         let ogTitle = ((response || {}).data || {}).ogTitle;
 
@@ -68,7 +69,7 @@ class DevRecordingsBusiness implements IDevRecordingsBusiness {
             uriAddress = new URI(model.address);
         }
 
-        model.hostname = uriAddress.hostname();
+        model.hostname = "http://" + uriAddress.hostname();
     }
 
 }

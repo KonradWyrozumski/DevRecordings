@@ -14,7 +14,7 @@ class DevRecordingsSchema {
             },
             thumbnailUrl: {
                 type: String,
-                required: true
+                required: false
             },
             title: {
                 type: String,

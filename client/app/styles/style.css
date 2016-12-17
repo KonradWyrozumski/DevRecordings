@@ -255,9 +255,11 @@ body.mini-navbar .page-content {
   margin-bottom: 0;
   padding: 14px 15px 7px;
   min-height: 48px;
+  overflow:hidden;
 }
 
 .ibox-title h5 {
+  color: inherit;
   display: inline-block;
   font-size: 14px;
   margin: 0 0 7px;
@@ -285,6 +287,7 @@ body.mini-navbar .page-content {
   font-size: 90%;
   background: #ffffff;
   padding: 10px 15px;
+  overflow:hidden;
 }
 
 .ibox-footer h8 {
@@ -304,12 +307,10 @@ body.mini-navbar .page-content {
 }
 
 .ibox-tools {
-  display: block;
-  float: none;
+  display: inline-block;
+  float: right;
   margin-top: 0;
-  position: relative;
   padding: 0;
-  text-align: right;
 }
 
 .ibox-tools a {
