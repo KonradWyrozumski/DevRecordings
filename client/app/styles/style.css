@@ -270,15 +270,22 @@ body.mini-navbar .page-content {
   float:left;
 }
 
-.ibox-content {
-  clear: both;
-  background-color: #ffffff;
-  color: inherit;
-  padding: 15px 20px 20px 20px;
-  border-color: #e7eaec;
-  border-image: none;
-  border-style: solid solid none;
-  border-width: 1px 0;
+@media (min-width: 768px) {
+  .ibox-content {
+    clear: both;
+    background-color: #ffffff;
+    color: inherit;
+    padding: 15px 20px 20px 20px;
+    border-color: #e7eaec;
+    border-image: none;
+    border-style: solid solid none;
+    border-width: 1px 0;
+  }
+}
+@media (max-width: 768px) {
+  .ibox-content {
+    display:none;
+  }
 }
 
 .ibox-footer {
@@ -430,4 +437,9 @@ body.mini-navbar .page-content {
     left: 0;
     opacity: 0.5;
     z-index:1000;
+}
+
+/* Modal */
+.modal .btn-primary{
+  margin:5px;
 }
