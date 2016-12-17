@@ -73,7 +73,8 @@ System.config({
       "services/ApiClient.js",
       "services/RecordingsApi.js",
       "show-all-recordings.js",
-      "show-my-recordings.js"
+      "show-my-recordings.js",
+      "spinner.js"
     ],
     "aurelia.js": [
       "github:twbs/bootstrap@3.3.7.js",

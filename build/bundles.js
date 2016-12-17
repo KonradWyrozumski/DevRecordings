@@ -11,7 +11,8 @@ module.exports = {
         "nav-bar.js",
         "add-mylist.js",
         "show-all-recordings.js",
-        "show-my-recordings.js"
+        "show-my-recordings.js",
+        "spinner.js"
       ],
       "options": {
         "inject": true,

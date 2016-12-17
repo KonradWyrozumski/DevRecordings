@@ -1,15 +1,18 @@
 import { Router, RouterConfiguration } from "aurelia-router";
 import { AuthService, AuthorizeStep, FetchConfig } from "aurelia-auth";
 import { inject } from "aurelia-framework";
+import { Spinner } from "./spinner";
 
-@inject(AuthService, FetchConfig)
+@inject(AuthService, FetchConfig, Spinner)
 export class App {
 
   router: Router;
   fetchConfig: FetchConfig;
+  spinner : Spinner;
 
-  constructor(public authService: AuthService, fetchConfig: FetchConfig) {
+  constructor(public authService: AuthService, fetchConfig: FetchConfig, spinner: Spinner) {
     this.fetchConfig = fetchConfig;
+    this.spinner = spinner;
   }
 
   activate() {
