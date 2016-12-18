@@ -37,23 +37,5 @@
             </template>
             </div>
     </template>
-    <div id="modal-form" class="modal fade" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col-sm-12 b-r">
-                            <h3 class="m-t-none m-b">Edit tags</h3>
-                            <form role="form">
-                                <div class="form-group"><label>Tags:</label> <input placeholder="Edit tags" class="form-control"></div>
-                                <span class="input-group-btn">
-                                    <button class="btn btn-primary pull-right">Save</button>
-                                    <button class="btn btn-primary pull-right" data-dismiss="modal">Cancel</button>
-                                </span>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <compose view-model="editTags" view="modal.html"></compose>
 </template>

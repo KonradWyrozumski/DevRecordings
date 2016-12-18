@@ -1,0 +1,27 @@
+<template>
+    <div id="modal-form" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-sm-12 b-r">
+                            <h3 class="m-t-none m-b">${title}</h3>
+                            <form role="form">
+                                <div class="form-group">
+                                    <template repeat.for="formInput of formInputs">
+                                        <label>${formInput.label}</label>
+                                        <input placeholder="${formInput.placeholder}" value.bind="formInput.value" class="form-control" />
+                                    </template>
+                                </div>
+
+                                <span class="input-group-btn">
+                                    <button class="btn btn-primary pull-right">Save</button>
+                                    <button class="btn btn-primary pull-right" data-dismiss="modal">Cancel</button>
+                                </span>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</template>

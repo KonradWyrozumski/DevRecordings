@@ -12,6 +12,7 @@ System.config({
       "add-mylist.js",
       "app.js",
       "config/authConfig.js",
+      "editTags.js",
       "github:CodeSeven/toastr@2.1.3.js",
       "github:CodeSeven/toastr@2.1.3/build/toastr.css!github:systemjs/plugin-css@0.1.32.js",
       "github:CodeSeven/toastr@2.1.3/toastr.js",

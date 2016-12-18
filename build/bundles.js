@@ -12,7 +12,8 @@ module.exports = {
         "add-mylist.js",
         "show-all-recordings.js",
         "show-my-recordings.js",
-        "spinner.js"
+        "spinner.js",
+        "editTags.js"
       ],
       "options": {
         "inject": true,

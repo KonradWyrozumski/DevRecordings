@@ -8,7 +8,7 @@ export class App {
 
   router: Router;
   fetchConfig: FetchConfig;
-  spinner : Spinner;
+  spinner: Spinner;
 
   constructor(public authService: AuthService, fetchConfig: FetchConfig, spinner: Spinner) {
     this.fetchConfig = fetchConfig;
