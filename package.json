@@ -40,9 +40,12 @@
     "gulp-nodemon": "^2.1.0",
     "gulp-notify": "^2.2.0",
     "gulp-plumber": "^1.1.0",
+    "gulp-rename": "^1.2.2",
     "gulp-sourcemaps": "^1.6.0",
+    "gulp-tslint": "^7.0.1",
     "gulp-typescript": "^2.13.6",
     "gulp-uglify": "^2.0.0",
+    "jspm": "^0.16.52",
     "jwt-simple": "^0.5.0",
     "lodash": "^4.16.5",
     "moment": "^2.15.2",
@@ -53,12 +56,10 @@
     "require-dir": "^0.3.0",
     "run-sequence": "^1.2.2",
     "serve-favicon": "^2.3.0",
+    "tslint": "^4.0.2",
     "typescript": "^2.0.0",
     "urijs": "^1.18.2",
-    "vinyl-paths": "^2.1.0",
-    "gulp-rename": "^1.2.2",
-    "gulp-tslint": "^7.0.1",
-    "tslint": "^4.0.2"
+    "vinyl-paths": "^2.1.0"
   },
   "scripts": {
     "test": "gulp test",
