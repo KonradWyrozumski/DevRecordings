@@ -63,6 +63,6 @@
   "scripts": {
     "test": "gulp test",
     "start": "node dist/server/server.js",
-    "postinstall": "gulp build"
+    "postinstall": "jspm install && gulp build"
   }
 }
