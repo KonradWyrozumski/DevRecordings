@@ -1,7 +1,7 @@
 import { inject } from "aurelia-framework";
 import { RecordingsApi } from "./services/RecordingsApi";
 import { EventAggregator } from "aurelia-event-aggregator";
-import { Recordings } from "./Recordings";
+import { Recordings } from "./recordings";
 import * as $ from "jquery";
 import { AuthService } from "aurelia-auth";
 
