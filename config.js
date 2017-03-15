@@ -8,7 +8,22 @@ System.config({
   },
   bundles: {
     "client-app-build.js": [
-      "[*.js]"
+      "add-mylist.js",
+      "app.js",
+      "editTags.js",
+      "home.js",
+      "login.js",
+      "logout.js",
+      "main.js",
+      "mylist.js",
+      "nav-bar.js",
+      "notification-state.js",
+      "notification.js",
+      "recordings.js",
+      "show-all-recordings.js",
+      "show-my-recordings.js",
+      "signup.js",
+      "spinner.js"
     ],
     "aurelia.js": [
       "github:twbs/bootstrap@3.3.7.js",
