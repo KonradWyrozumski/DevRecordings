@@ -2,7 +2,22 @@ module.exports = {
   "bundles": {
     "dist/client/app/client-app-build": {
       "includes": [
-        "[*.js]"
+        "add-mylist.js",
+        "app.js",
+        "editTags.js",
+        "home.js",
+        "login.js",
+        "logout.js",
+        "main.js",
+        "mylist.js",
+        "nav-bar.js",
+        "notification-state.js",
+        "notification.js",
+        "recordings.js",
+        "show-all-recordings.js",
+        "show-my-recordings.js",
+        "signup.js",
+        "spinner.js"
       ],
       "options": {
         "inject": true,
@@ -13,6 +28,8 @@ module.exports = {
     },
     "dist/client/app/aurelia": {
       "includes": [
+        "jquery",
+        "bootstrap",    
         "aurelia-framework",
         "aurelia-fetch-client",
         "aurelia-bootstrapper",
@@ -23,13 +40,11 @@ module.exports = {
         "aurelia-templating-binding",
         "aurelia-templating-resources",
         "aurelia-history-browser",
-        "aurelia-templating-router",
-        "bootstrap",
-        "jquery"
+        "aurelia-templating-router"
       ],
       "options": {
         "inject": true,
-        "minify": true,
+        "minify": false,
         "depCache": false,
         "rev": false
       }
