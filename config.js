@@ -8,7 +8,7 @@ System.config({
   },
   bundles: {
     "client-app-build.js": [
-      "Recordings.js",
+      "recordings.js",
       "add-mylist.js",
       "app.js",
       "config/authConfig.js",
