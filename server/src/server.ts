@@ -64,5 +64,3 @@ let server = Server.bootstrap();
 server.app.listen(server.app.get("port"), function() {
      console.log("Express server listening on port " + server.app.get("port"));
  });
-
-export = server.app;

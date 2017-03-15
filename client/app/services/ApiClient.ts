@@ -40,7 +40,7 @@ export abstract class ApiClient {
         console.debug(err);
     }
 
-    execute(cmd: string, data: any, onfulfilledfunc: (res: any) => any, func: (res: ICommandResult) => void) {
+    execute(cmd: string, data: any, onfulfilledfunc: (res: any) => any, func: (res: any) => void) {
         cmd = this.baseUrl + cmd;
 
         return this.http.fetch(cmd, {

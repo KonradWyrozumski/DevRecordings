@@ -4,7 +4,6 @@
     "src": "https://raw.githubusercontent.com/RomkeVdMeulen/URLSearchParams/master/typings.json",
     "raw": "github:RomkeVdMeulen/URLSearchParams",
     "main": "index.d.ts",
-    "name": "url-search-params-typing",
-    "type": "typings"
+    "name": "url-search-params-typing"
   }
 }
