@@ -1,6 +1,6 @@
 import express = require("express");
 import DevRecordingsController = require("./../../controllers/DevRecordingsController");
-import AuthUtils = require("../../controllers/authUtils");
+import AuthUtils = require("../../controllers/AuthUtils");
 
 let router = express.Router();
 
