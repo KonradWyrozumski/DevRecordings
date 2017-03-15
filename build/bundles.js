@@ -2,19 +2,7 @@ module.exports = {
   "bundles": {
     "dist/client/app/client-app-build": {
       "includes": [
-        "app.js",
-        "home.js",
-        "main.js",
-        "mylist.js",
-        "notification.js",
-        "notification-state.js",
-        "nav-bar.js",
-        "add-mylist.js",
-        "show-all-recordings.js",
-        "show-my-recordings.js",
-        "spinner.js",
-        "editTags.js",
-        "recordings.js"
+        "[*.js]"
       ],
       "options": {
         "inject": true,
