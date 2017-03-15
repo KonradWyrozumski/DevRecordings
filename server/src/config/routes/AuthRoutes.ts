@@ -1,6 +1,6 @@
 import express = require("express");
 import AuthController = require("./../../controllers/AuthController");
-import AuthUtils = require("../../controllers/authUtils");
+import AuthUtils = require("../../controllers/AuthUtils");
 
 let router = express.Router();
 class AuthRoutes {
